@@ -3,8 +3,8 @@ Lugar donde encontrarás numerosas recetas que se adaptarán a cada uno de los u
 
 ## Integrantes del equipo
 
-Elena Aliaga Rodríguez @e-aliaga;\n
-Juan Daniel Cuéllar García @danicuellar;\n
+Elena Aliaga Rodríguez @e-aliaga;
+Juan Daniel Cuéllar García @danicuellar;
 Iria Estepa Villaverde @iriax
 
 
