@@ -28,7 +28,8 @@ int main (){
         printf("SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
-        if(opcion==4){
+        
+            if(opcion==4){
         printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleannyos.\n 4.Semana Santa.\n");
         printf("Introduzca el numero de la festividad deseada:\n");
         scanf("%d",&o1);
@@ -49,7 +50,23 @@ int main (){
                         
                     }
                 }
-        }
+        }if (o1==4){
+            printf("Vacaciones bien merecidas!\nEn esta sección encontrarás los platos típicos de esta festividad.");
+            printf("1.Entrantes\n2.Primeros\n3.Segundos\n4.Postres\n");
+            scanf("%d",&o2);
+            if(o2==1){
+                printf("Para empuzar con buen pie tenemos:\n\n");
+                printf("Atascaburras\nBuñuelos de bacalao\nTortilla de camarones\nPorrusalda\n");
+            }else if (o2==2){
+                printf("Continuamos con los primeros:\n\n");
+                printf("Potaje de vigilia\nGarbanzos con espinacas\nPatatas viudas\nSopa de ajo\n");
+            }else if(o2==3){
+                printf("Segundos platos:\n\n");
+                printf("Cordero asado\nHornazo\nPava con pelotas\nMerluza a la cazuela\n");
+            }else if(o2==4){
+                printf("Postres:\n\n");
+                printf("Torrijas\nLeche frita\nArroz con leche\nBuñuelos de viento\n");
+            }
     }else if (idioma=='b') {
         printf("What do you have in your fridge?\n");
         printf("Categories\n");
