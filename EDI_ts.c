@@ -21,7 +21,7 @@ int main (){
         }
     
     if (idioma=='s'||idioma=='S'){
-        printf("1.�Que tienes en la nevera?\n2.Por categorias\n3.Ver todas las recetas\n4.Festividades\n5.Crea tu menu\n6.SALIR\n");
+        printf("1.¿Que tienes en la nevera?\n2.Por categorias\n3.Ver todas las recetas\n4.Festividades\n5.Crea tu menu\n6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
         
@@ -32,7 +32,7 @@ int main (){
         	scanf("%d",&o1);
         	
                 if (o1==1){
-                    printf("*��Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
+                    printf("*¡¡Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
                     printf(" 1.Menu estandar\n 2.Menu premium\n 3.Menu kids\n");
                     printf("Introduzca el numero del menu deseado:\n");
                     scanf("%d",&o2);
@@ -48,10 +48,23 @@ int main (){
                         
                     }
                 }
+		else if (o1==2){
+			printf("¡¡Feliz San Valentin a los enamorados del buen comer!!\n");
+			printf("1.Menu comida\n 2.Menu cena\n");
+			printf("Introduzca el numero del menu deseado:\n");
+			scanf("%d",&o3);
+			if (o3==1){
+				printf("Menu comida:\n\n");
+				printf("ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n Zamburiñas picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsámico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
+			}else if (o3==2){
+				printf("Menu cena:\n\n");
+				printf("ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castañas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
+			}
+    }
                 if (o1==3){
 		        printf("Feliz cumpleanyos!!\nA soplar las velas.\n");
 		        printf(" 1.Amante del chocolate\n 2.Algo mas ligth\n 3.Prefiero salado\n");
-		        printf("Introduzca el n�mero del men� deseado:\n");
+		        printf("Introduzca el número del menú deseado:\n");
 		        scanf("%d",&o2);
 			        if (o2==1){
 			            printf("Amante del chocolate:\n\n");
