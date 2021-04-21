@@ -43,7 +43,25 @@ int main (){
                 
             }
             
-		}
+        }else if(opcion==2){
+            printf("POR CATEGORIAS\n");
+            printf("1.Comida asiatica\n2.Comida fit\n3.Tradicional español\n4.Para mamis\n5.Al horno\n6.Platos frios\n");
+            printf("Introduzca el numero de la categoria deseada:\n");
+            scanf("%d",&o1);
+            if (o1==1){
+                printf("Comida asiatica:\n\n");
+            }else if(o1==2){
+                printf("Comida fit:\n\n");
+            }else if(o1==3){
+                printf("Tradicional español:\n\n");
+            }else if(o1==4){
+                printf("Para mamis:\n\n");
+            }else if(o1==5){
+                printf("Al horno:\n\n");
+            }else if(o1==6){
+                printf("Platos frios:\n\n");
+            }
+        }
         
         else if(opcion==4){
         	printf("FESTIVIDADES\n");
