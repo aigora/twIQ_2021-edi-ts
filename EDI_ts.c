@@ -53,7 +53,7 @@ int main (){
             }else if(o1==2){
                 printf("Comida fit:\n\n");
             }else if(o1==3){
-                printf("Tradicional español:\n\n");
+                printf("Tradicional espanyol:\n\n");
             }else if(o1==4){
                 printf("Para mamis:\n\n");
             }else if(o1==5){
