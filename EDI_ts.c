@@ -25,7 +25,11 @@ int main (){
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
         
-        if(opcion==4){
+        if(opcion==3){
+        	printf ("todas las recetas son....");
+		}
+        
+        else if(opcion==4){
         	printf("FESTIVIDADES\n");
         	printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
         	printf("Introduzca el numero de la festividad deseada:\n");
@@ -52,11 +56,11 @@ int main (){
 			printf("¡¡Feliz San Valentin a los enamorados del buen comer!!\n");
 			printf("1.Menu comida\n 2.Menu cena\n");
 			printf("Introduzca el numero del menu deseado:\n");
-			scanf("%d",&o3);
-			if (o3==1){
+			scanf("%d",&o2);
+			if (o2==1){
 				printf("Menu comida:\n\n");
 				printf("ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n Zamburiñas picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsámico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
-			}else if (o3==2){
+			}else if (o2==2){
 				printf("Menu cena:\n\n");
 				printf("ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castañas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
 			}
