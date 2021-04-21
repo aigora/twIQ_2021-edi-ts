@@ -25,8 +25,24 @@ int main (){
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
         
-        if(opcion==3){
-        	printf ("todas las recetas son....");
+        if(opcion==1){
+            printf("QUE TIENES EN LA NEVERA?\n");
+            printf("1.Huevos\n2.Pasta\n3.Arroz\n4.Patata\n5.Legumbres\n");
+            printf("Introduzca el numero del alimento deseado:\n");
+            scanf("%d",&o1);
+            if (o1==1){
+                printf("Recetas con huevo:\n\nHuevos rellenos\nQuich de atun\nHuevos al plato\nSarten de batatas con huevos\nHuevos al horno\n");
+            }else if(o1==2){
+                printf("Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
+            }else if(o1==3){
+                printf("Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
+            }else if(o1==4){
+                printf("Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhoja de patata con tomate\nSopa de patata\nTortitas de patata\n");
+            }else if(o1==5){
+                printf("Recetas con Legumbres:\n\nEnsalada de judias blancas\nPotaje\nGarbanzos al horno\nNachos con frijoles\nHamburguesa de lentejas\n");
+                
+            }
+            
 		}
         
         else if(opcion==4){
