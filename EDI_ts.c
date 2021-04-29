@@ -1,10 +1,12 @@
 #include<stdio.h>
+
 int main (){
-    char idioma;
+    char idioma, lista[100000];
     printf("Elija su idioma//Choose your languaje\n");
     printf("Escoja:\n's' para Espagnol\n'e' for English\n");
-    int z=0;
+    int z=0, i;
     int opcion, o1, o2;
+    FILE * recet;
     
     while(z==0){
         scanf("%c",&idioma);
@@ -21,7 +23,7 @@ int main (){
         }
     
     if (idioma=='s'||idioma=='S'){
-        printf("1.¿Que tienes en la nevera?\n2.Por categorias\n3.Ver todas las recetas\n4.Festividades\n5.Crea tu menu\n6.SALIR\n");
+        printf("1.Que tienes en la nevera?\n2.Por categorias\n3.Ver todas las recetas\n4.Festividades\n5.Crea tu menu\n6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
         
@@ -31,17 +33,30 @@ int main (){
             printf("Introduzca el numero del alimento deseado:\n");
             scanf("%d",&o1);
             if (o1==1){
-                printf("Recetas con huevo:\n\nHuevos rellenos\nQuich de atun\nHuevos al plato\nSarten de batatas con huevos\nHuevos al horno\n");
-            }else if(o1==2){
+                //printf("Recetas con huevo:\n\nHuevos rellenos\nQuiche de atun\nHuevos al plato\nSarten de batatas con huevos\nHuevos al horno\n");
+            	/*recet=fopen("recetas_huevo.txt","r");
+				if (recet==NULL) {
+					printf("No se ha podido encontrar el archirvo");
+					return 0;
+				}
+				i=0;
+				/*while (fscanf(recet,"%s", lista[i]) != EOF){
+					printf("%s\n",lista[i]);
+					i++;		
+				}
+				fprintf("recet", "%s");
+				fclose(recet); 
+				 */
+			}else if(o1==2){
                 printf("Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
             }else if(o1==3){
                 printf("Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
             }else if(o1==4){
-                printf("Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhoja de patata con tomate\nSopa de patata\nTortitas de patata\n");
+                printf("Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhojas de patata \nSopa de patata\nTortitas de patata\n");
             }else if(o1==5){
                 printf("Recetas con Legumbres:\n\nEnsalada de judias blancas\nPotaje\nGarbanzos al horno\nNachos con frijoles\nHamburguesa de lentejas\n");
-                
             }
+            
             
         }else if(opcion==2){
             printf("POR CATEGORIAS\n");
