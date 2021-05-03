@@ -20,16 +20,16 @@ int main (){
             printf("El dato introducido es incorrecto\nEscoja:\n'a'para Espagnol\n'b'for English\n");
             scanf("%c",&idioma);
         }
-        }
+    }
     
     if (idioma=='s'||idioma=='S'){
-        printf("1.Que tienes en la nevera?\n2.Por categorias\n3.Ver todas las recetas\n4.Festividades\n5.Crea tu menu\n6.SALIR\n");
+        printf(" 1.Que tienes en la nevera?\n 2.Por categorias\n 3.Ver todas las recetas\n 4.Festividades\n 5.Crea tu menu\n 6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
         
         if(opcion==1){
-            printf("QUE TIENES EN LA NEVERA?\n");
-            printf("1.Huevos\n2.Pasta\n3.Arroz\n4.Patata\n5.Legumbres\n");
+            printf("***QUE TIENES EN LA NEVERA?***\n");
+            printf(" 1.Huevos\n 2.Pasta\n 3.Arroz\n 4.Patata\n 5.Legumbres\n");
             printf("Introduzca el numero del alimento deseado:\n");
             scanf("%d",&o1);
             if (o1==1){
@@ -46,46 +46,46 @@ int main (){
 				}
 				fprintf("recet", "%s");
 				fclose(recet); 
-				 */
+				*/
 			}else if(o1==2){
-                printf("Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
+                printf(" Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
             }else if(o1==3){
-                printf("Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
+                printf(" Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
             }else if(o1==4){
-                printf("Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhojas de patata \nSopa de patata\nTortitas de patata\n");
+                printf(" Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhojas de patata \nSopa de patata\nTortitas de patata\n");
             }else if(o1==5){
-                printf("Recetas con Legumbres:\n\nEnsalada de judias blancas\nPotaje\nGarbanzos al horno\nNachos con frijoles\nHamburguesa de lentejas\n");
+                printf(" Recetas con legumbres:\n\nEnsalada de judias blancas\nPotaje\nGarbanzos al horno\nNachos con frijoles\nHamburguesa de lentejas\n");
             }
             
             
         }else if(opcion==2){
-            printf("POR CATEGORIAS\n");
-            printf("1.Comida asiatica\n2.Comida fit\n3.Tradicional español\n4.Para mamis\n5.Al horno\n6.Platos frios\n");
+            printf("***POR CATEGORIAS***\n");
+            printf(" 1.Comida asiatica\n 2.Comida fit\n 3.Tradicional espagnol\n 4.Para mamis\n 5.Al horno\n 6.Platos frios\n");
             printf("Introduzca el numero de la categoria deseada:\n");
             scanf("%d",&o1);
             if (o1==1){
-                printf("Comida asiatica:\n\nNoodles salteados\nPan Noan\nArroz cubak\nSoja testurizada\nRollitos primavera\nPato frito\nTernera con bambú y setas\nSushi tradicional\n");
+                printf(" Comida asiatica:\n\nNoodles salteados\nPan Naan\nArroz cubak\nSoja testurizada\nRollitos primavera\nPato frito\nTernera con bambu y setas\nSushi tradicional\n");
             }else if(o1==2){
-                printf("Comida fit:\n\nEnsalada de espinacas\nEnsalada de pasta con alubias\nTortilla de champinyones y espincacas\nBatatas rellenas\nCrepes de avena\nBrownie fit\nCuscus con verduras\n");
+                printf(" Comida fit:\n\nEnsalada de espinacas\nEnsalada de pasta con alubias\nTortilla de champinyones y espincacas\nBatatas rellenas\nCrepes de avena\nBrownie fit\nCuscus con verduras\n");
             }else if(o1==3){
-                printf("Tradicional espanyol:\n\nCocido tradicional\nLentejas jardineras\nPaella al gusto\nCallos a la madrilenya\nGazpacho andaluz\nRabo de toro\nPulpo a la gallega\nCochinillo segoviano\nMigas extremenyas\nCalamares a la romana\n Croquetas caseras");
+                printf(" Tradicional espanyol:\n\nCocido tradicional\nLentejas jardineras\nPaella al gusto\nCallos a la madrilenya\nGazpacho andaluz\nRabo de toro\nPulpo a la gallega\nCochinillo segoviano\nMigas extremenyas\nCalamares a la romana\n Croquetas caseras");
             }else if(o1==4){
-                printf("Para mamis:\n\nEnsalada de espinacas\nFagitas vegetales\nLasanya de brocoli y salmon\nPorridge\nPa amd tomaquet\nInfusion de jengibre");
+                printf(" Para mamis:\n\nEnsalada de espinacas\nFagitas vegetales\nLasanya de brocoli y salmon\nPorridge\nPa amd tomaquet\nInfusion de jengibre");
             }else if(o1==5){
-                printf("Al horno:\n\nCordero asado\nDorada a la sal\nPollo al horno\nVerduras salpimentadas\nCanelones de atun\nColiflor gratinada\nSalmon a la mandarina\nPimientos del piquillo\n");
+                printf(" Al horno:\n\nCordero asado\nDorada a la sal\nPollo al horno\nVerduras salpimentadas\nCanelones de atun\nColiflor gratinada\nSalmon a la mandarina\nPimientos del piquillo\n");
             }else if(o1==6){
-                printf("Platos frios:\n\nTostas\nSanwich vegetal\nEmpanada de atun\nSalmorejo con jamon y huevo\nVichisoi\nHummus con zanahoria\nPoke Bowl hawaiano\n");
+                printf(" Platos frios:\n\nTostas\nSanwich vegetal\nEmpanada de atun\nSalmorejo con jamon y huevo\nVichisoi\nHummus con zanahoria\nPoke Bowl hawaiano\n");
             }
         }
         
         else if(opcion==4){
-        	printf("FESTIVIDADES\n");
+        	printf("***FESTIVIDADES***\n");
         	printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
         	printf("Introduzca el numero de la festividad deseada:\n");
         	scanf("%d",&o1);
         	
                 if (o1==1){
-                    printf("*¡¡Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
+                    printf("*Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
                     printf(" 1.Menu estandar\n 2.Menu premium\n 3.Menu kids\n");
                     printf("Introduzca el numero del menu deseado:\n");
                     scanf("%d",&o2);
@@ -103,16 +103,16 @@ int main (){
                 
                 }
                 else if (o1==2){
-                    printf("¡¡Feliz San Valentin a los enamorados del buen comer!!\n");
-                    printf("1.Menu comida\n 2.Menu cena\n");
+                    printf("Feliz San Valentin a los enamorados del buen comer!!\n");
+                    printf(" 1.Menu comida\n 2.Menu cena\n");
                     printf("Introduzca el numero del menu deseado:\n");
                     scanf("%d",&o2);
                         if (o2==1){
                             printf("Menu comida:\n\n");
-                            printf("ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n Zamburiñas picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsámico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
+                            printf(" ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n Zamburiñas picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsámico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
                         }else if (o2==2){
                             printf("Menu cena:\n\n");
-                            printf("ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castañas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
+                            printf(" ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castanyas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
                         }
                 }
                 else if (o1==3){
@@ -151,11 +151,12 @@ int main (){
 		            }
 				}
         }else if(opcion==6){
+        	printf("Gracias por su visita.\nHasta pronto.\n");
             return 0;
         }
 	}
 	else if (idioma=='e'||idioma=='E') {
-        printf("1.What do you have in your fridge?\n2.Categories\n3.All recipes\n4.Festivities\n5.Desing your menu\n6.EXIT\n");
+        printf(" 1.What do you have in your fridge?\n 2.Categories\n 3.All recipes\n 4.Festivities\n 5.Desing your menu\n 6.EXIT\n");
     }
     return 0;
 }
