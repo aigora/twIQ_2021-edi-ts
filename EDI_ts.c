@@ -98,17 +98,78 @@ int main (){
             printf("Introduzca el numero de la categoria deseada:\n");
             scanf("%d",&o1);
             if (o1==1){
-                printf(" Comida asiatica:\n\nNoodles salteados\nPan Naan\nArroz cubak\nSoja testurizada\nRollitos primavera\nPato frito\nTernera con bambu y setas\nSushi tradicional\n");
+              
+                frecet=fopen("recetas_asiaticas.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
+                
             }else if(o1==2){
-                printf(" Comida fit:\n\nEnsalada de espinacas\nEnsalada de pasta con alubias\nTortilla de champinyones y espincacas\nBatatas rellenas\nCrepes de avena\nBrownie fit\nCuscus con verduras\n");
+              
+                frecet=fopen("recetas_fit.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
             }else if(o1==3){
-                printf(" Tradicional espanyol:\n\nCocido tradicional\nLentejas jardineras\nPaella al gusto\nCallos a la madrilenya\nGazpacho andaluz\nRabo de toro\nPulpo a la gallega\nCochinillo segoviano\nMigas extremenyas\nCalamares a la romana\n Croquetas caseras");
+               
+                frecet=fopen("recetas_espanyol.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
             }else if(o1==4){
-                printf(" Para mamis:\n\nEnsalada de espinacas\nFagitas vegetales\nLasanya de brocoli y salmon\nPorridge\nPa amd tomaquet\nInfusion de jengibre");
+                
+                frecet=fopen("recetas_mamis.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
             }else if(o1==5){
-                printf(" Al horno:\n\nCordero asado\nDorada a la sal\nPollo al horno\nVerduras salpimentadas\nCanelones de atun\nColiflor gratinada\nSalmon a la mandarina\nPimientos del piquillo\n");
+               
+                frecet=fopen("recetas_horno.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
             }else if(o1==6){
-                printf(" Platos frios:\n\nTostas\nSanwich vegetal\nEmpanada de atun\nSalmorejo con jamon y huevo\nVichisoi\nHummus con zanahoria\nPoke Bowl hawaiano\n");
+                
+                frecet=fopen("recetas_frios.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                
             }
         }
         
