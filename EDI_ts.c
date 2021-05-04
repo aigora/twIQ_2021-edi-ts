@@ -6,7 +6,7 @@ int main (){
     printf("Escoja:\n's' para Espagnol\n'e' for English\n");
     int z=0, i;
     int opcion, o1, o2;
-    FILE * recet;
+    FILE * frecet;
     
     while(z==0){
         scanf("%c",&idioma);
@@ -33,21 +33,17 @@ int main (){
             printf("Introduzca el numero del alimento deseado:\n");
             scanf("%d",&o1);
             if (o1==1){
-                //printf("Recetas con huevo:\n\nHuevos rellenos\nQuiche de atun\nHuevos al plato\nSarten de batatas con huevos\nHuevos al horno\n");
-            	/*recet=fopen("recetas_huevo.txt","r");
-				if (recet==NULL) {
-					printf("No se ha podido encontrar el archirvo");
-					return 0;
-				}
-				i=0;
-				/*while (fscanf(recet,"%s", lista[i]) != EOF){
-					printf("%s\n",lista[i]);
-					i++;		
-				}
-				fprintf("recet", "%s");
-				fclose(recet); 
-				*/
-			}else if(o1==2){
+            
+                frecet=fopen("recetas_huevo.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
+                 }else if(o1==2){
                 printf(" Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
             }else if(o1==3){
                 printf(" Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
@@ -79,11 +75,11 @@ int main (){
         }
         
         else if(opcion==4){
-        	printf("***FESTIVIDADES***\n");
-        	printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
-        	printf("Introduzca el numero de la festividad deseada:\n");
-        	scanf("%d",&o1);
-        	
+            printf("***FESTIVIDADES***\n");
+            printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
+            printf("Introduzca el numero de la festividad deseada:\n");
+            scanf("%d",&o1);
+            
                 if (o1==1){
                     printf("*Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
                     printf(" 1.Menu estandar\n 2.Menu premium\n 3.Menu kids\n");
@@ -116,47 +112,47 @@ int main (){
                         }
                 }
                 else if (o1==3){
-		        printf("Feliz cumpleanyos!!\nA soplar las velas.\n");
-		        printf(" 1.Amante del chocolate\n 2.Algo mas ligth\n 3.Prefiero salado\n");
-		        printf("Introduzca el número del menú deseado:\n");
-		        scanf("%d",&o2);
-			        if (o2==1){
-			            printf("Amante del chocolate:\n\n");
-			            printf(" Tarta de tres chocolates\n Tarta de galletas con crema de chocolate\n Brownie de chocolate con nueces\n");
-			        }else if (o2==2){
-			            printf("Algo mas ligth:\n\n");
-			            printf(" Pastel de zanahoria con nueces\n Pastelitos de queso\n Tarta de manzana\n Tarta de queso\n");
-			        }else if(o2==3){
-			            printf("Prefiero salado:\n\n");
-			            printf(" Flamenquines enrrollados al horno\n Croissants de queso y jamon\n Finggers de queso\n Mini hamburguesas con queso\n");    
-			        }
-		   		}
+                printf("Feliz cumpleanyos!!\nA soplar las velas.\n");
+                printf(" 1.Amante del chocolate\n 2.Algo mas ligth\n 3.Prefiero salado\n");
+                printf("Introduzca el número del menú deseado:\n");
+                scanf("%d",&o2);
+                    if (o2==1){
+                        printf("Amante del chocolate:\n\n");
+                        printf(" Tarta de tres chocolates\n Tarta de galletas con crema de chocolate\n Brownie de chocolate con nueces\n");
+                    }else if (o2==2){
+                        printf("Algo mas ligth:\n\n");
+                        printf(" Pastel de zanahoria con nueces\n Pastelitos de queso\n Tarta de manzana\n Tarta de queso\n");
+                    }else if(o2==3){
+                        printf("Prefiero salado:\n\n");
+                        printf(" Flamenquines enrrollados al horno\n Croissants de queso y jamon\n Finggers de queso\n Mini hamburguesas con queso\n");
+                    }
+                   }
     
-		        else if (o1==4){
-		            printf("Vacaciones bien merecidas!\nEn esta seccionn encontraras los platos tipicos de esta festividad.\n");
-		            printf(" 1.Entrantes\n 2.Primeros\n 3.Segundos\n 4.Postres\n");
-		            scanf("%d",&o2);
-		            if (o2==1){
-		                printf("Para empuzar con buen pie tenemos:\n\n");
-		                printf(" Atascaburras\n Bunyuelos de bacalao\n Tortilla de camarones\n Porrusalda\n");
-		            }else if (o2==2){
-		                printf("Continuamos con los primeros:\n\n");
-		                printf(" Potaje de vigilia\n Garbanzos con espinacas\n Patatas viudas\n Sopa de ajo\n");
-		            }else if(o2==3){
-		                printf("Segundos platos:\n\n");
-		                printf(" Cordero asado\n Hornazo\n Pava con pelotas\n Merluza a la cazuela\n");
-		            }else if(o2==4){
-		                printf("Postres:\n\n");
-		                printf(" Torrijas\n Leche frita\n Arroz con leche\n Bunyuelos de viento\n");
-		            }
-				}
+                else if (o1==4){
+                    printf("Vacaciones bien merecidas!\nEn esta seccionn encontraras los platos tipicos de esta festividad.\n");
+                    printf(" 1.Entrantes\n 2.Primeros\n 3.Segundos\n 4.Postres\n");
+                    scanf("%d",&o2);
+                    if (o2==1){
+                        printf("Para empuzar con buen pie tenemos:\n\n");
+                        printf(" Atascaburras\n Bunyuelos de bacalao\n Tortilla de camarones\n Porrusalda\n");
+                    }else if (o2==2){
+                        printf("Continuamos con los primeros:\n\n");
+                        printf(" Potaje de vigilia\n Garbanzos con espinacas\n Patatas viudas\n Sopa de ajo\n");
+                    }else if(o2==3){
+                        printf("Segundos platos:\n\n");
+                        printf(" Cordero asado\n Hornazo\n Pava con pelotas\n Merluza a la cazuela\n");
+                    }else if(o2==4){
+                        printf("Postres:\n\n");
+                        printf(" Torrijas\n Leche frita\n Arroz con leche\n Bunyuelos de viento\n");
+                    }
+                }
         }else if(opcion==6){
-        	printf("Gracias por su visita.\nHasta pronto.\n");
+            printf("Gracias por su visita.\nHasta pronto.\n");
             return 0;
         }
-	}
-	else if (idioma=='e'||idioma=='E') {
+    }else if (idioma=='e'||idioma=='E') {
         printf(" 1.What do you have in your fridge?\n 2.Categories\n 3.All recipes\n 4.Festivities\n 5.Desing your menu\n 6.EXIT\n");
     }
+
     return 0;
 }
