@@ -4,7 +4,7 @@ int main (){
     char idioma, lista[100000];
     printf("Elija su idioma//Choose your languaje\n");
     printf("Escoja:\n's' para Espagnol\n'e' for English\n");
-    int z=0, i;
+    int z=0;
     int opcion, o1, o2;
     FILE * frecet;
     
@@ -44,7 +44,6 @@ int main (){
                 }
                 return 0;
                  }else if(o1==2){
-               // printf(" Recetas con pasta:\n\nEnsalada de pasta\nPasta al pesto\nAguacates rellenos de pasta y atun\nMac&cheese\nRamen casero\n");
                      frecet=fopen("recetas_pasta.txt","r");
                      if (frecet==NULL) {
                          printf("Error, el fichero no se ha encontrado.\n");
@@ -56,8 +55,7 @@ int main (){
                      return 0;
                     
             }else if(o1==3){
-                //printf(" Recetas con arroz:\n\nRisoto milanesa\nArroz al curry\nArroz tres delicias\nEnsalada de arroz\nPaella al gusto\n");
-                
+
                 frecet=fopen("recetas_arroz.txt","r");
                 if (frecet==NULL) {
                     printf("Error, el fichero no se ha encontrado.\n");
@@ -70,8 +68,7 @@ int main (){
                 
                 
             }else if(o1==4){
-                //printf(" Recetas con patata:\n\nBolas de patata y atun\nEnsaladilla rusa\nEnsalada campera\nMilhojas de patata \nSopa de patata\nTortitas de patata\n");
-                
+               
                 frecet=fopen("recetas_patata.txt","r");
                 if (frecet==NULL) {
                     printf("Error, el fichero no se ha encontrado.\n");
@@ -82,8 +79,7 @@ int main (){
                 }
                 return 0;
             }else if(o1==5){
-               //printf(" Recetas con legumbres:\n\nEnsalada de judias blancas\nPotaje\nGarbanzos al horno\nNachos con frijoles\nHamburguesa de lentejas\n");
-                
+             
                 frecet=fopen("recetas_legumbre.txt","r");
                 if (frecet==NULL) {
                     printf("Error, el fichero no se ha encontrado.\n");
