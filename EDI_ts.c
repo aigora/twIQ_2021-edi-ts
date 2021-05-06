@@ -171,9 +171,19 @@ int main (){
                 return 0;
                 
             }
-        }
+        }else if(opcion==3){
+            frecet=fopen("recetas.txt","r");
+            if (frecet==NULL) {
+                printf("Error, el fichero no se ha encontrado.\n");
+                return 0;
+            }
+            while (fscanf(frecet,"%s", lista) != EOF){
+                printf("%s\t",lista);
+            }
+            return 0;
+            
         
-        else if(opcion==4){
+        }else if(opcion==4){
             printf("***FESTIVIDADES***\n");
             printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
             printf("Introduzca el numero de la festividad deseada:\n");
@@ -416,4 +426,5 @@ int main (){
     }
 
     return 0;
+}
 }
