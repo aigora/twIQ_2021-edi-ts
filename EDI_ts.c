@@ -50,16 +50,17 @@ int main (){
                     printf("%s\t",lista);
                 }
                 return 0;
-                 }else if(o1==2){
-                     frecet=fopen("recetas_pasta.txt","r");
-                     if (frecet==NULL) {
-                         printf("Error, el fichero no se ha encontrado.\n");
-                         return 0;
-                     }
-                     while (fscanf(frecet,"%s", lista) != EOF){
-                         printf("%s\t",lista);
-                     }
-                     return 0;
+                
+            }else if(o1==2){
+				frecet=fopen("recetas_pasta.txt","r");
+				if (frecet==NULL) {
+				    printf("Error, el fichero no se ha encontrado.\n");
+				    return 0;
+				}
+				while (fscanf(frecet,"%s", lista) != EOF){
+				    printf("%s\t",lista);
+				}
+				return 0;
                     
             }else if(o1==3){
 
@@ -72,8 +73,7 @@ int main (){
                     printf("%s\t",lista);
                 }
                 return 0;
-                
-                
+                         
             }else if(o1==4){
                
                 frecet=fopen("recetas_patata.txt","r");
@@ -85,6 +85,7 @@ int main (){
                     printf("%s\t",lista);
                 }
                 return 0;
+                
             }else if(o1==5){
              
                 frecet=fopen("recetas_legumbre.txt","r");
