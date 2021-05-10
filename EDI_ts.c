@@ -1,5 +1,8 @@
 #include<stdio.h>
 
+void imprimirBanner();
+void printBanner();
+
 int main (){
     char idioma, lista[100000];
     printf("Elija su idioma//Choose your languaje\n");
@@ -7,6 +10,8 @@ int main (){
     int z=0;
     int opcion, o1, o2;
     FILE * frecet;
+    
+    
     
     while(z==0){
         scanf("%c",&idioma);
@@ -17,11 +22,13 @@ int main (){
             break;
         }
         else{
-            printf("El dato introducido es incorrecto\nEscoja:\n'a'para Espagnol\n'b'for English\n");
+            printf("El dato introducido es incorrecto\nEscoja:\n's'para Espagnol\n'e'for English\n");
             scanf("%c",&idioma);
         }
     }
     
+	imprimirBanner();
+	   
     if (idioma=='s'||idioma=='S'){
         printf(" 1.Que tienes en la nevera?\n 2.Por categorias\n 3.Ver todas las recetas\n 4.Festividades\n 5.Crea tu menu\n 6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
@@ -259,7 +266,11 @@ int main (){
             printf("Gracias por su visita.\nHasta pronto.\n");
             return 0;
         }
-    }else if (idioma=='e'||idioma=='E') {
+        
+	printBanner();
+
+    }
+	else if (idioma=='e'||idioma=='E') {
         printf(" 1.What do you have in your fridge?\n 2.Categories\n 3.All recipes\n 4.Festivities\n 5.Desing your menu\n 6.EXIT\n");
         printf("Enter the number of the desired option:\n");
         scanf("%d",&opcion);
@@ -327,8 +338,7 @@ int main (){
                 }
                 return 0;
             }
-            
-            
+			           
         }else if(opcion==2){
             printf("***CATEGORIES***\n");
             printf(" 1.Asian food\n 2.Fit food\n 3.Typical spanish\n 4.For mothers\n 5.Baked\n 6.Cold dishes\n");
@@ -368,10 +378,8 @@ int main (){
                         printf("*ENTRANTES:*\n Sticktartar\n Coquinas en salsa marinera\n Jamon 5jotas\n Salmon gravelax\n\n*PRIMER PLATO:*\n Risoto con trufas\n Bisque de langostinos\n Crema de carabineros\n\n*SEGUNDO PLATO:*\n Cordero asado a las finas hierbas\n Merluza en salsa verde\n Lasanya de verduras\n\n*POSTRES:*\n Mousse de crema de orujo\n Trufas con helado flambeado\n Filloas\n\n");
                     }else if (o2==3){
                         printf("Menu kids:\n\n");
-                        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");
-                        
+                        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");  
                     }
-                
                 }
                 else if (o1==2){
                     printf("Feliz San Valentin a los enamorados del buen comer!!\n");
@@ -401,7 +409,7 @@ int main (){
                         printf("Prefiero salado:\n\n");
                         printf(" Flamenquines enrrollados al horno\n Croissants de queso y jamon\n Finggers de queso\n Mini hamburguesas con queso\n");
                     }
-                   }
+                }
     
                 else if (o1==4){
                     printf("Vacaciones bien merecidas!\nEn esta seccionn encontraras los platos tipicos de esta festividad.\n");
@@ -427,4 +435,11 @@ int main (){
 
     return 0;
 }
+}
+
+void imprimirBanner(){
+    printf("-------------------COCINANDO--CON--EDI-------------------\n");
+    }
+void printBanner(){
+	printf("-------------------COOKING--WITH--EDI-------------------\n");
 }
