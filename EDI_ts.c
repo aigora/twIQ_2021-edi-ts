@@ -1,17 +1,25 @@
 #include<stdio.h>
+#include <string.h>
 
 void imprimirBanner();
 void printBanner();
-
+struct ficha{
+    char nombre[100];
+    char contrasennya[100];
+    int registro;
+   
+};
 int main (){
     char idioma, lista[100000];
-    printf("Elija su idioma//Choose your languaje\n");
-    printf("Escoja:\n's' para Espagnol\n'e' for English\n");
+    struct ficha usuario[500];
+    int option,numeroUsuarios=0;
+    int numeracion=0,i=0,j=0,a,b,n=0,longitud[200];
     int z=0;
     int opcion, o1, o2;
     FILE * frecet;
-    
-    
+    FILE * fichero;
+    printf("Elija su idioma//Choose your languaje\n");
+    printf("Escoja:\n's' para Espagnol\n'e' for English\n");
     
     while(z==0){
         scanf("%c",&idioma);
@@ -27,9 +35,109 @@ int main (){
         }
     }
     
-	imprimirBanner();
-	   
+    imprimirBanner();
+       
     if (idioma=='s'||idioma=='S'){
+        
+        //Vamos a abrir el fichero usuarios para guardar los datos de la estructura en él
+            
+            fichero=fopen("usuarios.txt","r");
+            if(fichero==NULL){ //comprobamos que el fichero con el que vamos a trabajar funciona
+                printf("Error en la apertura de ficheros.\n");
+                return 0;
+            }
+            
+            //Vamos a ir guardando los usuarios que se vayan registrando en el fichero
+            
+            while(fscanf(fichero,"%d %s %s", &usuario[i].registro,usuario[i].nombre,usuario[i].contrasennya)!=EOF){
+                numeroUsuarios++;
+                i++;
+            }
+            fclose(fichero);
+            
+            printf("1.Registrarse\n2.Iniciar sesion\n");
+            scanf("%d",&option);
+            fflush(stdin);
+            switch(option){
+                
+        //Vamos a introducir un nuevo usuario:
+                    
+                case 1:
+                    usuario[i].registro=i+1;
+                    
+                    //pedimos nombre y contraseña
+                    
+                    printf("Introduzca su nombre de usuario:");
+                    fflush(stdin);
+                    gets(usuario[i].nombre);
+                    printf("Introduzca su contraseña:");
+                    fflush(stdin);
+                    gets(usuario[i].contrasennya);
+                    
+                    //vamos a comprobar que no coincida con el nombre de ninguno de los usuarios previamente registrados. En caso de que no coincida, este se añadira al fichero y se quedará registrada la posición en la que se añadio de forma que el siguiente usuario en registrarse quedara añadido a continuacion.
+                    
+                    for(a=0;a<numeroUsuarios;a++){ //el numero de usuarios ira incrementando segun incremente el numero de registros, de forma que cada vez que haya un nuevo resgistro se compare con los ya existentes usuarios
+                        
+                        for(j=0;j<i;j++){ //en este caso estaremos comparando el nuevo usuario con los ya existentes
+                            if(strcmp(usuario[i].nombre,usuario[j].nombre)==0){
+                                printf("El nombre de usuario escogido ya existe. Por favor elija otro.");
+                                fflush(stdin);
+                                gets(usuario[i].nombre);
+                            }
+                        }
+                    }
+                        do{ //pediremos la contrasennya de forma que tenga que contener entre 6 y 14 caracteres
+                        longitud[i]=strlen(usuario[i].contrasennya);
+                        if((longitud[i]<6)||(longitud[i]>14)){
+                            printf("ERROR, la contrasennya introducida no es valida, debe contener entre 6 y 14 caracteres.\n"); //si la contrasennya no cumple los requisitos la pediremos de nuevo
+                            printf("Contrasennya:");
+                            fflush(stdin);
+                            gets(usuario[i].contrasennya);
+                            longitud[i]=strlen(usuario[i].contrasennya);
+                        }
+                        }while((longitud[i]<6)||(longitud[i]>14));
+                      
+                     
+                    fichero=fopen("usuarios.txt","w");
+                    if(fichero==NULL){ //comprobamos que el fichero que estamos abriendo funciona
+                        printf("Error\n");
+                        return 0;
+                    }
+                    for(n=0;n<=i;n++){
+                        fprintf(fichero,"%d\n %s\n %s\n",usuario[n].registro,usuario[n].nombre,usuario[n].contrasennya);
+                    }
+                    fclose(fichero);
+        
+                    b=i;
+                       
+                    break;
+                    
+        //Un usuario ya registrado inicia sesion
+                    
+                case 2:
+                
+                    do{ //pedimos el nombre y la contrasennya y comprobamos que ambos coincidan con un usuario ya registrado anteriormente (este estara guardado en el fichero)
+                        printf("Nombre de usuario:");
+                        fflush(stdin);
+                        gets(usuario[i].nombre);
+                        printf("Contrasennya:");
+                        fflush(stdin);
+                        gets(usuario[i].contrasennya);
+                        for(b=0;b<numeroUsuarios;b++){
+                            if((strcmp(usuario[i].nombre,usuario[b].nombre)==0)&&(strcmp(usuario[i].contrasennya,usuario[b].contrasennya)==0)){
+                               numeracion++;
+                                break;
+                            }
+                        }
+                        if(numeracion==0){ //en caso de que no coincida con un usuario registrado no le dejara continuar
+                            printf("El nombre de usuario o la contrasennya introducidos ha sido incorrecto, por favor introduzcalos de nuevo.\n");
+                        }
+                    }while(numeracion==0);
+                    
+                    break;
+                }
+        }
+
         printf(" 1.Que tienes en la nevera?\n 2.Por categorias\n 3.Ver todas las recetas\n 4.Festividades\n 5.Crea tu menu\n 6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
@@ -52,15 +160,15 @@ int main (){
                 return 0;
                 
             }else if(o1==2){
-				frecet=fopen("recetas_pasta.txt","r");
-				if (frecet==NULL) {
-				    printf("Error, el fichero no se ha encontrado.\n");
-				    return 0;
-				}
-				while (fscanf(frecet,"%s", lista) != EOF){
-				    printf("%s\t",lista);
-				}
-				return 0;
+                frecet=fopen("recetas_pasta.txt","r");
+                if (frecet==NULL) {
+                    printf("Error, el fichero no se ha encontrado.\n");
+                    return 0;
+                }
+                while (fscanf(frecet,"%s", lista) != EOF){
+                    printf("%s\t",lista);
+                }
+                return 0;
                     
             }else if(o1==3){
 
@@ -267,11 +375,12 @@ int main (){
             printf("Gracias por su visita.\nHasta pronto.\n");
             return 0;
         }
-        
-	printBanner();
+ 
+    printBanner();
 
-    }
-	else if (idioma=='e'||idioma=='E') {
+
+}
+    else if (idioma=='e'||idioma=='E') {
         printf(" 1.What do you have in your fridge?\n 2.Categories\n 3.All recipes\n 4.Festivities\n 5.Desing your menu\n 6.EXIT\n");
         printf("Enter the number of the desired option:\n");
         scanf("%d",&opcion);
@@ -339,7 +448,7 @@ int main (){
                 }
                 return 0;
             }
-			           
+                       
         }else if(opcion==2){
             printf("***CATEGORIES***\n");
             printf(" 1.Asian food\n 2.Fit food\n 3.Typical spanish\n 4.For mothers\n 5.Baked\n 6.Cold dishes\n");
@@ -379,7 +488,7 @@ int main (){
                         printf("*ENTRANTES:*\n Sticktartar\n Coquinas en salsa marinera\n Jamon 5jotas\n Salmon gravelax\n\n*PRIMER PLATO:*\n Risoto con trufas\n Bisque de langostinos\n Crema de carabineros\n\n*SEGUNDO PLATO:*\n Cordero asado a las finas hierbas\n Merluza en salsa verde\n Lasanya de verduras\n\n*POSTRES:*\n Mousse de crema de orujo\n Trufas con helado flambeado\n Filloas\n\n");
                     }else if (o2==3){
                         printf("Menu kids:\n\n");
-                        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");  
+                        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");
                     }
                 }
                 else if (o1==2){
@@ -436,11 +545,12 @@ int main (){
 
     return 0;
 }
-}
+
 
 void imprimirBanner(){
     printf("-------------------COCINANDO--CON--EDI-------------------\n");
     }
 void printBanner(){
-	printf("-------------------COOKING--WITH--EDI-------------------\n");
+    printf("-------------------COOKING--WITH--EDI-------------------\n");
 }
+
