@@ -9,6 +9,7 @@ void imprimirHuevos();
 void imprimirArroz();
 void imprimirPasta();
 void imprimirLegumbres();
+void imprimirPatata();
 
 struct ficha{
     char nombre[100];
@@ -157,32 +158,20 @@ int main (){
             printf(" 1.Huevos\n 2.Pasta\n 3.Arroz\n 4.Patata\n 5.Legumbres\n");
             printf("Introduzca el numero del alimento deseado:\n");
             scanf("%d",&o1);
-            if (o1==1){
             
+            if (o1==1){
                 imprimirHuevos();
             }
 			else if(o1==2){
                 imprimirPasta();
-     
             }
 			else if(o1==3){
-                imprimirArroz();
-            
+                imprimirArroz();     
             }
 			else if(o1==4){
-               
-                frecet=fopen("recetas_patata.txt","r");
-                if (frecet==NULL) {
-                    printf("Error, el fichero no se ha encontrado.\n");
-                    return 0;
-                }
-                while (fscanf(frecet,"%s", lista) != EOF){
-                    printf("%s\t",lista);
-                }
-                return 0;                
+                imprimirPatata();               
             }
 			else if(o1==5){
-             
                 imprimirLegumbres();
             }    
         }
@@ -395,16 +384,9 @@ int main (){
                     printf("%s\t",lista);
                 }
                 return 0;
-                 }else if(o1==2){
-                     frecet=fopen("recetas_pasta.txt","r");
-                     if (frecet==NULL) {
-                         printf("Error, the file was not found.\n");
-                         return 0;
-                     }
-                     while (fscanf(frecet,"%s", lista) != EOF){
-                         printf("%s\t",lista);
-                     }
-                     return 0;       
+            }
+			else if(o1==2){
+              imprimirPasta();            
             }
 			else if(o1==3){
 
@@ -420,15 +402,7 @@ int main (){
             }
 			else if(o1==4){
                
-                frecet=fopen("recetas_patata.txt","r");
-                if (frecet==NULL) {
-                    printf("Error, the file was not found.\n");
-                    return 0;
-                }
-                while (fscanf(frecet,"%s", lista) != EOF){
-                    printf("%s\t",lista);
-                }
-                return 0;
+               
             }
 			else if(o1==5){
              
@@ -577,6 +551,10 @@ void imprimirPasta(){
 
 void imprimirLegumbres(){
     printf("*RECETAS CON LEGUMBRES*\n\n-Ensalada de judias blancas:\nLava y escurre bien las judias y las viertes en un bol. Pica los pimientos, la cebolla, el tomate y las aceitunas en cuadraditos y annyadelos a las judias. Annyade el atun desmenuzado, y remueve todo bien con cuidado de no romper las judias. Prepara la vinagreta mezclando bien todos los ingredientes de la misma en un bol aparte, viertela sobre la ensalada y remueve ligeramente. Por ultimo,  annyade los huevos duros y el perejil picados por encima. Tapa el bol y reservalo en la nevera hasta el momento de servir. Debe estar bien frio.\n\n-Potaje:\nPon en remojo los garbanzos en abundante agua fria con sal la noche anterior, al menos durante 12 horas. Al dia siguiente, o pasado el tiempo de remojo, pon a cocer los garbanzos en un litro de agua, con la hoja de laurel y dos dientes de ajo pelados. Esto puede hacerse en olla expres para ganar tiempo, dejando cocer unos 25 minutos despues de que suba la valvula. Mientras tanto, pon el aceite en una sarten y, cuando este caliente, annyade dos dientes de ajo enteros y pelados, friendo a fuego medio hasta que esten dorados. Retirar los ajos y reservalos. Annyade las dos cebollas picadas finas y sofrie a fuego suave hasta que este pochada. Deja enfriar un poco y annyade una cucharadita de pimenton removiendo. Pasalo por la batidora. De la olla donde has cocido los garbanzos, retira la hoja de laurel y los dientes de ajo. Pon de nuevo al fuego y cuando este bien caliente annyade el sofrito, las hojas de espinaca y rectifica de sal. Cuece unos quince minutos a fuego medio. En un poco de aceite, en una sarten, frie el pan y mezcla en un mortero con los ajos fritos; annyade el majado al guiso y el bacalao en trozos peque–os y deja cocer otros diez minutos.\n\n-Frijoles:\nPrecalienta el horno a 190grados centigrados. Echa los garbanzos en una bandeja para horno con papel para hornear y hornealos durante 30 minutos. Saca la bandeja del horno cada 10 minutos para remover los garbanzos, asi quedar‡n mas crujientes. Una vez hayan pasado los 30 minutos, saca la bandeja del horno de nuevo y echa los garbanzos en un bol junto con el resto de ingredientes y remueve hasta que esten bien integrados. Hornea durante 10-15 minutos mas y retira del horno. Puedes comerlos frios o calientes.\n\n-Nachos con frijoles:\nPoner los frijoles en remojo desde la noche anterior. Cocer los frijoles en una olla con agua hirviendo y sal durante 40 minutos aproximadamente. Cortar los tomates y la cebolla en dados pequennyos. Rehogar la cebolla durante unos tres minutos y luego el tomate. Sacar los frijoles del agua hirviendo y freir en una sarten con un poco de aceite de oliva. Incorporar los frijoles a la sarten con el tomate y la cebolla. Salpimentar.\n\n-Hamburguesa de lentejas:\n Pica el pimiento verde, el puerro y la zanahoria y pocha todo en una sarten con aceite de oliva y sal. Mezcla las lentejas y el arroz cocido en un bol de manera que quede una mezcla un poco espesa. Incorpora la verdura pochada y remueve. Annyade las pasas y el maiz.Tuesta las pipas en una sarten sin aceite y agregalas. Condimenta con sal, pimienta y tomillo. Vuelve a mezclar. Deja reposar un rato en el frigorifico. Mientras tanto, pela el boniato, corta laminas finas con ayuda de la mandolina y frielas en una sarten con aceite de oliva. Escurre los chips sobre papel absorbente de cocina y salpimientalos. Da forma a las hamburguesas y frielas por un lado en una sarten con aceite de oliva. Dales la vuelta y coloca una loncha de queso encima de cada una. Pon en un plato unarodaja gruesa de tomate con una pizca de sal y un chorrito de vinagreta. Coloca encima la hamburguesa y unas hojas de lechuga. Alinnya con mas vinagreta y coloca por ultimo unos chips de boniato.\n");
+}
+
+void imprimirPatata(){
+	printf("*RECETAS CON PATATA*\n\n-Bolas de patata y atun:\nCocemos las patatas, ponemos agua en una olla al fuego y sumergimos las patatas. Tienen que quedar cubiertas. Las tenemos hirviendo durante 40-45 minutos aproximadamente o hasta que se puedan atravesar perfectamente con un cuchillo, que se vean bastante tiernas. Entonces las escurrimos y las reservamos mientras continuamos con la receta. Pelamos y picamos en trozos muy pequenyos la cebolla, ponemos el aceite en una sarten pequenya y, cuando este caliente, anyadimos la cebolla. Las rehogamos a fuego medio-bajo hasta que este dorada. Reservamos. Pelamos las patatas, las ponemos en un cuenco amplio y las estrujamos con ayuda de un tenedor. Esto no te va a suponer ninguna dificultad porque al estar muy tiernas y un poco calientes, se deshacen enseguida. Agregamos la sal, la pimienta, la nuez moscada, la cebolla, el perejil muy picado y la lata de atun previamente escurrida. Con ayuda del tenedor mezclamos todo. Dejamos que se enfrie un poco mas. Si a la hora de dar forma a las bolas la masa esta un poco templada no pasa nada, se pueden dar forma a las bolas sin dificultad. Ahora vamos a rebozar las bolas: en un plato ponemos el huevo batido, en otro plato o cuenco ponemos el pan rallado. Damos forma de bolas a la masa de patatas, las pasamos por el huevo batido y a continuacion por el pan rallado. Ponemos abundante aceite de freir en una sarten y, cuando este caliente, anyadimos las bolas. Freimos hasta que esten doradas y las ponemos sobre un plato cubierto con un papel de cocina para que absorba el exceso de aceite. Servimos calientes.\n\n-Ensaladilla rusa:En una cazuela ponemos a hervir agua; cuando haya hervido incorporamos los huevos y cocemos durante 10 minutos. Retiramos del agua, quitamos las cascaras y reservamos. Al mismo tiempo en otra cazuela ponemos a hervir agua con dos cucharaditas de sal; anyadimos las patatas enteras y con cascara, junto con la zanahoria, entera y pelada. Dejamos cocer durante unos 30 minutos, esto depende del tamanyo de las patatas. Cuando hayan pasado unos 20 minutos, comprobamos si la patata esta cocida pinchando con un tenedor. Retiramos de la cazuela las patatas y la zanahoria, dejamos que templen, pelamos y cortamos en dados. En otra cazuela, anadimos una cucharadita de aceite de oliva virgen extra y cocinamos los guisantes con un poquito de sal un par de minutos hasta que estan tiernos. En una fuente grande anyadimos las patatas y las zanahorias cortadas en dados. A continuación anyadimos los huevos. Tradicionalmente se anyade solo la clara cortada a trocitos, y la yema se puede usar rallada para decorar. Incorporamos los guisantes, el atun bien escurrido y la mayonesa. Mezclamos todo bien, damos la forma que mas nos guste a nuestra ensaladilla y decoramos por encima con yema de huevo rallado, aceitunas y pimientos del piquillo. Colocamos en la nevera durante toda la noche.\n\n-Ensalada campera:\nLo primero, es cocer las patatas y los huevos. Para ello hay que lavar las primeras antes de ponerlas a cocer en una olla o cazuela con abundante agua salada, aunque también se pueden hacer al vapor. Es más practico el agua porque podemos aprovechar para cocer al mismo tiempo los huevos. Cuando hayan pasado unos 9-12 minutos de coccion, sacar los huevos y dejar enfriar un poco antes de pelar. Continuar la coccion de las patatas hasta que se puedan atravesar con un cuchillo sin dificultad. Lo importante es que no queden crudas o muy duras, aunque, de nuevo, se puede ajustar la textura segun nos guste. Escurrir y dejar enfriar hasta que podamos pelarlas sin quemarnos. Lavar bien los pimientos, abrir y retirar las semillas. Cortar en cubos pequenyos o tiras. Picar la cebolleta fina y trocear también los tomates. Combinar todos los ingredientes en una fuente anyadiendo las aceitunas cortadas por la mitad, anyadir las patatas, salpimentar ligeramente y mezclar. Preparar la vinagreta emulsionando el aceite con el vinagre, el zumo de limon y salpimentando al gusto. Servir el atun o bonito escurrido repartiendolo por encima, añadir los huevos pelados y cortados y aliñar a discrecion.\n\n-Sopa de patata:\nCalienta el aceite en una olla y añade la cebolla. Cocina a fuego medio-alto durante unos 5 minutos o hasta que se dore, removiendo de vez en cuando. Anyade la harina y cocina durante 1 o 2 minutos, removiendo frecuentemente. Echa el caldo, la leche, la sal y la pimienta remueve hasta que estén completamente integrados. Anyade mas o menos caldo y leche en funcion de  lo caldosa que te guste la sopa. Anyade las patatas y cuando la sopa rompa a hervir, cubre y cocina a fuego medio durante unos 15 minutos o hasta que la patata esté tierna. Retira del fuego, anyade la levadura y el zumo de limon y remueve hasta que se hayan integrado completamente.\n\n-Milhojas de patata:\nPara comenzar con la milhojas de papas a la crema, pela y corta las papas bien finitas. Colocalas en una fuente para horno engrasada, una al lado de la otra. En un recipiente coloca la crema de leche y los tres huevos. Bate ligeramente y condimenta con sal, pimienta. Agrega sobre las papas un poco de la preparacion anterior. Anyade unos trocitos de manteca y espolvorea por arriba el queso rallado para hacer una milhojas de patatas gratinadas. Vuelve a colocar encima otra capa de papas y repite el proceso hasta terminar con una capa de papas. Cubre bien con el preparado de crema y huevos. Espolvorea con queso rallado y lleva a horno a temperatura moderada (180 °C) hasta que se cocine la patata. El tiempo de cocción dependera de la altura del milhojas, pero sera aproximadamente unos 50 minutos. Para asegurarte que estén cocidas pinchalas con un palito de brochette.\n\n-Tortilla de patata\n:Pelamos y lavamos las patatas, las cortamos en rodajas finas al igual que la cebolla. Ponemos ambas cosas en una sarten y cubrimos de aceite de oliva virgen extra, dejamos que se hagan a fuego medio-suave hasta que comiencen a dorarse. Sabreis que las patatas estan hechas cuando comiencen a romperse, con la paleta. Para que la tortilla este jugosa es importante que las patatas se hagan bien y se confiten. Por lo tanto, paciencia con este paso. Las sacamos de la sarten y escurrimos bien. Ponemos en un cuenco grande, aparte batimos los huevos y los anyadimos a las patatas y a la cebolla, anyadimos un poco de sal y mezclamos. Dejamos un par de minutos que se mezclen bien. Aqui hay quien prefiere dejar las patatas enteras y quien prefiere machacarlas un poco con la paleta para que se mezclen bien con el huevo. Ponemos en la sarten un par de cucharadas de aceite de oliva virgen extra y vertemos todo. Al principio rompemos un poco, como si fuaramos a hacer un revuelto, luego vamos dandole forma  por los bordes. Cuando veamos que ya esta cuajada por abajo ponemos un plato o una tapa encima de la sarten y le damos la vuelta rapidamente. Ponemos de nuevo la sartén en el fuego y deslizamos la tortilla desde el plato a la sarten. Dejamos unos minutos mas para que se termine de hacer y ya tenemos lista nuestra tortilla de patatas.");
 }
 
 void imprimirBanner(){
