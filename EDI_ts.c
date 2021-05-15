@@ -2,16 +2,26 @@
 #include <string.h>
 
 void imprimirBanner();
-
 void printBanner();
 
+//funciones para "¿Qué tienes en la nevera?
 void imprimirHuevos();
 void imprimirArroz();
 void imprimirPasta();
 void imprimirLegumbres();
 void imprimirPatata();
+
+//funciones para "Por categorías"
 void imprimirAsiaticas();
 void imprimirFit();
+void imprimirFrios();
+void imprimirMamir();
+
+//funciones para "Festividades"
+void imprimirNavidad();
+void imprimirSanValentin();
+void imprimirSemanaSanta();
+void imprimirCumpleanyos();
 
 struct ficha{
     char nombre[100];
@@ -129,10 +139,10 @@ int main (){
                 case 2:
                 
                     do{ //pedimos el nombre y la contrasennya y comprobamos que ambos coincidan con un usuario ya registrado anteriormente (este estara guardado en el fichero)
-                        printf("Nombre de usuario:");
+                        printf("Nombre de usuario:\t");
                         fflush(stdin);
                         gets(usuario[i].nombre);
-                        printf("Contrasennya:");
+                        printf("Contrasennya:\t");
                         fflush(stdin);
                         gets(usuario[i].contrasennya);
                         
@@ -184,11 +194,11 @@ int main (){
             printf("Introduzca el numero de la categoria deseada:\n");
             scanf("%d",&o1);
             if (o1==1){
-                void imprimirAsiaticas();
-                
+                imprimirAsiaticas();
+			}   
+			
 			else if(o1==2){
-                void imprimirFit();
-                
+                imprimirFit();    
             }
 			else if(o1==3){
                
@@ -204,16 +214,7 @@ int main (){
                 
             }
 			else if(o1==4){
-                
-                frecet=fopen("recetas_mamis.txt","r");
-                if (frecet==NULL) {
-                    printf("Error, el fichero no se ha encontrado.\n");
-                    return 0;
-                }
-                while (fscanf(frecet,"%s", lista) != EOF){
-                    printf("%s\t",lista);
-                }
-                return 0;
+                imprimirMamis();
 			}
 			else if(o1==5){
                
@@ -229,21 +230,11 @@ int main (){
                 
             }
 			else if(o1==6){
-                
-                frecet=fopen("recetas_frios.txt","r");
-                if (frecet==NULL) {
-                    printf("Error, el fichero no se ha encontrado.\n");
-                    return 0;
-                }
-                while (fscanf(frecet,"%s", lista) != EOF){
-                    printf("%s\t",lista);
-                }
-                return 0;
-                
+                imprimirFrios(); 
             }
         }
 		
-		else if(opcion==3){
+		else if(opcion==3){ //OPCION PARA VER TODAS LAS RECETAS
             frecet=fopen("recetas.txt","r");
             if (frecet==NULL) {
                 printf("Error, el fichero no se ha encontrado.\n");
@@ -255,86 +246,25 @@ int main (){
             return 0;
         }
 		
-		else if(opcion==4){
+		else if(opcion==4){ //OPCION PARA LAS FETIVIDADES
             printf("***FESTIVIDADES***\n");
             printf(" 1.Navidad.\n 2.San Valentin.\n 3.Cumpleanyos.\n 4.Semana Santa.\n");
             printf("Introduzca el numero de la festividad deseada:\n");
             scanf("%d",&o1);
-            
                 if (o1==1){
-                    printf("*Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
-                    printf(" 1.Menu estandar\n 2.Menu premium\n 3.Menu kids\n");
-                    printf("Introduzca el numero del menu deseado:\n");
-                    scanf("%d",&o2);
-                    if (o2==1){
-                        printf("Menu estandar:\n\n");
-                        printf("*ENTRANTES:*\n Embutido Variado\n Humus de garbanzo. Acompanyado de nachos, zanahoria, o puerros\n Croquetas de jamon\n\n*PRIMER PLATO:*\n Crema de calabaza con queso roquefort\n Sopa de marisco\n Tempura de verduras\n\n*SEGUNDO PLATO:*\n Solomillo Wellington\n Berenjenas rellenas\n Lubina a la sal\n\n*POSTRES:*\n Tarta de queso/zanahoria\n Brownie\n Hojaldre de chocolate\n");
-                    }
-					else if (o2==2){
-                        printf("Menu premium:\n\n");
-                        printf("*ENTRANTES:*\n Sticktartar\n Coquinas en salsa marinera\n Jamon 5jotas\n Salmon gravelax\n\n*PRIMER PLATO:*\n Risoto con trufas\n Bisque de langostinos\n Crema de carabineros\n\n*SEGUNDO PLATO:*\n Cordero asado a las finas hierbas\n Merluza en salsa verde\n Lasanya de verduras\n\n*POSTRES:*\n Mousse de crema de orujo\n Trufas con helado flambeado\n Filloas\n\n");
-                    }
-					else if (o2==3){
-                        printf("Menu kids:\n\n");
-                        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");   
-                    }
+                	imprimirNavidad();
                 }
                 
                 else if (o1==2){
-                    printf("Feliz San Valentin a los enamorados del buen comer!!\n");
-                    printf(" 1.Menu comida\n 2.Menu cena\n");
-                    printf("Introduzca el numero del menu deseado:\n");
-                    scanf("%d",&o2);
-                    if (o2==1){
-                        printf("Menu comida:\n\n");
-                        printf(" ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n ZamburiÃ±as picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsÃ¡mico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
-                    }
-					else if (o2==2){
-                        printf("Menu cena:\n\n");
-                        printf(" ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castanyas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
-                    }
+                    imprimirSanValentin();
                 }
                 
                 else if (o1==3){
-	                printf("Feliz cumpleanyos!!\nA soplar las velas.\n");
-	                printf(" 1.Amante del chocolate\n 2.Algo mas ligth\n 3.Prefiero salado\n");
-	                printf("Introduzca el nÃºmero del menÃº deseado:\n");
-	                scanf("%d",&o2);
-	                
-                    if (o2==1){
-                        printf("Amante del chocolate:\n\n");
-                        printf(" Tarta de tres chocolates\n Tarta de galletas con crema de chocolate\n Brownie de chocolate con nueces\n");
-                    }
-					else if (o2==2){
-                        printf("Algo mas ligth:\n\n");
-                        printf(" Pastel de zanahoria con nueces\n Pastelitos de queso\n Tarta de manzana\n Tarta de queso\n");
-                    }
-					else if(o2==3){
-                        printf("Prefiero salado:\n\n");
-                        printf(" Flamenquines enrrollados al horno\n Croissants de queso y jamon\n Finggers de queso\n Mini hamburguesas con queso\n");
-                    }
+                	imprimirCumpleanyos();
                 }
     
                 else if (o1==4){
-                    printf("Vacaciones bien merecidas!\nEn esta seccionn encontraras los platos tipicos de esta festividad.\n");
-                    printf(" 1.Entrantes\n 2.Primeros\n 3.Segundos\n 4.Postres\n");
-                    scanf("%d",&o2);
-                    if (o2==1){
-                        printf("Para empuzar con buen pie tenemos:\n\n");
-                        printf(" Atascaburras\n Bunyuelos de bacalao\n Tortilla de camarones\n Porrusalda\n");
-                    }
-					else if (o2==2){
-                        printf("Continuamos con los primeros:\n\n");
-                        printf(" Potaje de vigilia\n Garbanzos con espinacas\n Patatas viudas\n Sopa de ajo\n");
-                    }
-					else if(o2==3){
-                        printf("Segundos platos:\n\n");
-                        printf(" Cordero asado\n Hornazo\n Pava con pelotas\n Merluza a la cazuela\n");
-                    }
-					else if(o2==4){
-                        printf("Postres:\n\n");
-                        printf(" Torrijas\n Leche frita\n Arroz con leche\n Bunyuelos de viento\n");
-                    }
+    				imprimirSemanaSanta();
                 }
         }
         
@@ -520,7 +450,7 @@ int main (){
 
     return 0;
 }
-
+//FUNCIONES PARA "¿QUÉ TIENES EN LA NEVERA?"
 void imprimirHuevos(){
     printf("*RECETAS CON HUEVO*\n\n-Huevos rellenos:\nPonemos la patata a hervir, durante unos 20 minutos, en agua con sal. Y los huevos tambien los cocemos, 10 minutos en agua con sal. Terminado el tiempo de ambos los refrescamos para que no sigan cociŽndose. Por otro lado picamos todos los ingredientes y los ponemos en un bol. Ademas, annyadimos las yemas de los huevos (que habremos cortado por la mitad para sacarselas previamente) y las patatas troceadas. Con una batidora hacemos un pure con todos los ingredientes y por ultimo annyadimos la mayonesa. Dejamos enfriar y despues con una manga pastelera y una boquilla rizada rellenamos los huevos.\n\n-Quiche de huevo:\nColoca la masa en el molde de tartaleta. Pincha con un tenedor la base y hornea 20 minutos a 180grados centigrados. Mezcla en un bol 3 huevos + nata + sal + pimienta. Annyade el jamon + cebollino picado y mezcla. Vierte la mezcla en la tartaleta prehorneada. Espolvorea mozzarella. Romper los 3 huevos restantes por encima. Hornear 30 minutos a 180grados centigrados.\n\n-Huevos al plato:\nEn cazuelitas aptas para horno ponemos una base de tomate frito, un poquito de ajo picado y perejil picado. Alrededor de la cazuela, 3 longanizas (en cada cazuelita) y en el centro el huevo, una pizca de sal sobre la yema y espolvoreamos sobre las longanizas queso rallado (te recomiendo Emmental). Y al horno a 180grados centigrados hasta que el huevo este cocinado y el queso gratinado.\n\n-Sarten de batatas con huevo:\nPela la batata (boniato) y cortala en dados no muy grandes. Pica media cebolla y corta en dados un tomate. En una sarten echa aceite de oliva y sofrie la cebolla. Cuando la cebolla este blandita agrega a la sarten los dados de batata. Saltea unos 5-6 minutos a fuego suave. Annyade a la sarten el tomate, un poco de sal y oregano, y cocina con la tapa puesta a fuego suave durante 6-7 minutos. Levanta la tapa, rompe dos huevos en la sarten, echales una pizca de sal y deja que se cocinen con el calor de la sarten y con la tapa puesta. Cuando los huevos esten en el punto que a ti te gusta, apaga el fuego y sirve en el plato.\n\n-Huevos al horno:\nLo primero es precalentar el horno a 190grados centigrados con calor abajo. Picas la cebolla y la pochas en una sarten con aceite hasta que este blandita y transparente. Mientras, pelas las patatas y las cortas en rodajas finas, mas o menos como las de la foto. Las incorporas a la sarten, salpimientas y las fries unos 10 minutos hasta que se ablanden. Cuando esten listas, las sacas de la sarten y las pones en un escurridor para quitarles el exceso de aceite. Colocas las patatas en una cazuela para horno y las riegas con la nata. Pones los huevos encima haciendo un huequito para que no se desparramen y espolvoreas por encima el perejil. Por ultimo, metes la bandeja en la parte inferior del horno y lo cocinas unos 10 minutos hasta que la clara este cuajada.\n");
 }
@@ -541,13 +471,105 @@ void imprimirPatata(){
 	printf("*RECETAS CON PATATA*\n\n-Bolas de patata y atun:\nCocemos las patatas, ponemos agua en una olla al fuego y sumergimos las patatas. Tienen que quedar cubiertas. Las tenemos hirviendo durante 40-45 minutos aproximadamente o hasta que se puedan atravesar perfectamente con un cuchillo, que se vean bastante tiernas. Entonces las escurrimos y las reservamos mientras continuamos con la receta. Pelamos y picamos en trozos muy pequenyos la cebolla, ponemos el aceite en una sarten pequenya y, cuando este caliente, anyadimos la cebolla. Las rehogamos a fuego medio-bajo hasta que este dorada. Reservamos. Pelamos las patatas, las ponemos en un cuenco amplio y las estrujamos con ayuda de un tenedor. Esto no te va a suponer ninguna dificultad porque al estar muy tiernas y un poco calientes, se deshacen enseguida. Agregamos la sal, la pimienta, la nuez moscada, la cebolla, el perejil muy picado y la lata de atun previamente escurrida. Con ayuda del tenedor mezclamos todo. Dejamos que se enfrie un poco mas. Si a la hora de dar forma a las bolas la masa esta un poco templada no pasa nada, se pueden dar forma a las bolas sin dificultad. Ahora vamos a rebozar las bolas: en un plato ponemos el huevo batido, en otro plato o cuenco ponemos el pan rallado. Damos forma de bolas a la masa de patatas, las pasamos por el huevo batido y a continuacion por el pan rallado. Ponemos abundante aceite de freir en una sarten y, cuando este caliente, anyadimos las bolas. Freimos hasta que esten doradas y las ponemos sobre un plato cubierto con un papel de cocina para que absorba el exceso de aceite. Servimos calientes.\n\n-Ensaladilla rusa:En una cazuela ponemos a hervir agua; cuando haya hervido incorporamos los huevos y cocemos durante 10 minutos. Retiramos del agua, quitamos las cascaras y reservamos. Al mismo tiempo en otra cazuela ponemos a hervir agua con dos cucharaditas de sal; anyadimos las patatas enteras y con cascara, junto con la zanahoria, entera y pelada. Dejamos cocer durante unos 30 minutos, esto depende del tamanyo de las patatas. Cuando hayan pasado unos 20 minutos, comprobamos si la patata esta cocida pinchando con un tenedor. Retiramos de la cazuela las patatas y la zanahoria, dejamos que templen, pelamos y cortamos en dados. En otra cazuela, anadimos una cucharadita de aceite de oliva virgen extra y cocinamos los guisantes con un poquito de sal un par de minutos hasta que estan tiernos. En una fuente grande anyadimos las patatas y las zanahorias cortadas en dados. A continuación anyadimos los huevos. Tradicionalmente se anyade solo la clara cortada a trocitos, y la yema se puede usar rallada para decorar. Incorporamos los guisantes, el atun bien escurrido y la mayonesa. Mezclamos todo bien, damos la forma que mas nos guste a nuestra ensaladilla y decoramos por encima con yema de huevo rallado, aceitunas y pimientos del piquillo. Colocamos en la nevera durante toda la noche.\n\n-Ensalada campera:\nLo primero, es cocer las patatas y los huevos. Para ello hay que lavar las primeras antes de ponerlas a cocer en una olla o cazuela con abundante agua salada, aunque también se pueden hacer al vapor. Es más practico el agua porque podemos aprovechar para cocer al mismo tiempo los huevos. Cuando hayan pasado unos 9-12 minutos de coccion, sacar los huevos y dejar enfriar un poco antes de pelar. Continuar la coccion de las patatas hasta que se puedan atravesar con un cuchillo sin dificultad. Lo importante es que no queden crudas o muy duras, aunque, de nuevo, se puede ajustar la textura segun nos guste. Escurrir y dejar enfriar hasta que podamos pelarlas sin quemarnos. Lavar bien los pimientos, abrir y retirar las semillas. Cortar en cubos pequenyos o tiras. Picar la cebolleta fina y trocear también los tomates. Combinar todos los ingredientes en una fuente anyadiendo las aceitunas cortadas por la mitad, anyadir las patatas, salpimentar ligeramente y mezclar. Preparar la vinagreta emulsionando el aceite con el vinagre, el zumo de limon y salpimentando al gusto. Servir el atun o bonito escurrido repartiendolo por encima, añadir los huevos pelados y cortados y aliñar a discrecion.\n\n-Sopa de patata:\nCalienta el aceite en una olla y añade la cebolla. Cocina a fuego medio-alto durante unos 5 minutos o hasta que se dore, removiendo de vez en cuando. Anyade la harina y cocina durante 1 o 2 minutos, removiendo frecuentemente. Echa el caldo, la leche, la sal y la pimienta remueve hasta que estén completamente integrados. Anyade mas o menos caldo y leche en funcion de  lo caldosa que te guste la sopa. Anyade las patatas y cuando la sopa rompa a hervir, cubre y cocina a fuego medio durante unos 15 minutos o hasta que la patata esté tierna. Retira del fuego, anyade la levadura y el zumo de limon y remueve hasta que se hayan integrado completamente.\n\n-Milhojas de patata:\nPara comenzar con la milhojas de papas a la crema, pela y corta las papas bien finitas. Colocalas en una fuente para horno engrasada, una al lado de la otra. En un recipiente coloca la crema de leche y los tres huevos. Bate ligeramente y condimenta con sal, pimienta. Agrega sobre las papas un poco de la preparacion anterior. Anyade unos trocitos de manteca y espolvorea por arriba el queso rallado para hacer una milhojas de patatas gratinadas. Vuelve a colocar encima otra capa de papas y repite el proceso hasta terminar con una capa de papas. Cubre bien con el preparado de crema y huevos. Espolvorea con queso rallado y lleva a horno a temperatura moderada (180 °C) hasta que se cocine la patata. El tiempo de cocción dependera de la altura del milhojas, pero sera aproximadamente unos 50 minutos. Para asegurarte que estén cocidas pinchalas con un palito de brochette.\n\n-Tortilla de patata\n:Pelamos y lavamos las patatas, las cortamos en rodajas finas al igual que la cebolla. Ponemos ambas cosas en una sarten y cubrimos de aceite de oliva virgen extra, dejamos que se hagan a fuego medio-suave hasta que comiencen a dorarse. Sabreis que las patatas estan hechas cuando comiencen a romperse, con la paleta. Para que la tortilla este jugosa es importante que las patatas se hagan bien y se confiten. Por lo tanto, paciencia con este paso. Las sacamos de la sarten y escurrimos bien. Ponemos en un cuenco grande, aparte batimos los huevos y los anyadimos a las patatas y a la cebolla, anyadimos un poco de sal y mezclamos. Dejamos un par de minutos que se mezclen bien. Aqui hay quien prefiere dejar las patatas enteras y quien prefiere machacarlas un poco con la paleta para que se mezclen bien con el huevo. Ponemos en la sarten un par de cucharadas de aceite de oliva virgen extra y vertemos todo. Al principio rompemos un poco, como si fuaramos a hacer un revuelto, luego vamos dandole forma  por los bordes. Cuando veamos que ya esta cuajada por abajo ponemos un plato o una tapa encima de la sarten y le damos la vuelta rapidamente. Ponemos de nuevo la sartén en el fuego y deslizamos la tortilla desde el plato a la sarten. Dejamos unos minutos mas para que se termine de hacer y ya tenemos lista nuestra tortilla de patatas.");
 }
 
+//FUNCIONES PARA "POR CATEGORÍAS"
 void imprimirAsiaticas(){
     printf("*COMIDA ASIATICA*\n\n-Noodles salteados:\nEcha una cucharada de aceite de oliva en un wok o sarten. Cuando este muy caliente annyade las verduras cortadas en juliana, el jengibre en polvo, 2 cucharadas de salsa de soja o tamari y el agua. Cocina las verduras a fuego fuerte durante unos 5 minutos o hasta que esten al dente.Mientras, cuece los fideos en abundante agua hirviendo durante unos 5 minutos. Cuelalos y echalos en el wok. Annyade otras 2 cucharadas de salsa de soja o tamari, remueve y deja que se cocinen durante unos 2 minutos.\n\n-Pan Naan:\nDisuelve la levadura junto con el agua tibia, la leche tibia y la miel. Deja reposar en un espacio calido 15 minutos. Pasado el tiempo debe verse espumoso. Si no es asi, deberas repetir el proceso. Despues integra el aceite y el yogurt. Mezcla y disuelve. Annyade la harina junto con la sal. Mezcla. Espolvorea la encimera limpia con harina, y vuelca la masa sobre ella. Amasa durante 10 minutos. Pasado el tiempo, engrasa un bol con aceite, y pon la masa dentro. Ponle un poco de aceite a la superficie de la masa. Tapala con un pannyo limpio y deja reposar en un lugar calido durante 1 hora o 1h y media. Cuando haya levado, ponla de nuevo sobre la encimera con harina. Cortala en 8 partes iguales y hazlas bolitas. Con ayuda de un rodillo, estira las bolitas. Procura no dejarlas demasiado finas. Pon una sarten a fuego medio, untala con un poco de mantequilla y tuesta los panes por un lado y pintalos con aceite. Deben salir burbujas, dale tiempo de que se inflen y dales la vuelta. No los tuestes demasiado para que no queden muy resecos. Pica 2 dientes de ajo y cilantro o machacalos en un mortero. Ponle aceite de oliva o mantequilla fundida y pinta tus panes con la mezcla de estos 3 ingredientes.\n\n-Arroz Kubak:\nPrimero tendras que cocer el arroz en un cazo con agua, durante unos 20 minutos. Pasado ese tiempo, lo escurrimos y lo pasamos por agua fria. Volvemos a escurrir y lo vamos colocando en una bandeja de horno, que habremos cubierto con papel de hornear.Ahora lo dejamos secar en el horno, durante media hora a 150grados centigrados. Cuando se termine el tiempo, lo echamos en un recipiente. Justo en ese momento podras ir haciendo el acompannyamiento del arroz. Los vegetales o las gambas iran perfectos. Cuando el arroz ya este templado, lo echamos en un cazo con abundante aceite y lo llevamos al fuego. Lo tenemos que freir para que nos quede dorado y a la vez, crujiente. Cuando veas que se infla, retiralo con la ayuda de una espumadera.Para la salsa, ponemos un poco de aceite en un wok y salteamos la cebolleta en rodajas y el calabacin a tiras hasta que esten crujientes y no muy hechos.Annyadimos las setas y, posteriormente, los langostinos pelados y la salsa de soja u ostras. Cuando la salsa este espesa y caliente y una vez preparado el arroz inflado, lo annyadimos inmediatamente y bien caliente al wok.\n\n-Rollitos Primavera:Cortamos las verduras en juliana y reservamos. En un wok, o en una sarten si no tuvierais, annyadimos 3 cucharadas de aceite para freir. Cuando este bien caliente agregamos la col y la cebolla. Rehogamos removiendo constantemente hasta que la verdura este al dente. No debe quedar muy pochadita sino un poquito crujiente. Cuando este casi lista annyadimos al wok una cucharada de salsa de soja y unas gotitas de aceite de sesamo. Removemos unos segundos y retiramos. En el mismo wok volvemos a annyadir un par de cucharadas de aceite para freir. Cuando este caliente annyadimos la zanahoria ya troceada y repetimos la operacion. La cocinamos removiendo constantemente hasta que este al dente, annyadimos una cucharada de soja y un chorrito de aceite de sesamo, removemos y retiramos. Seguimos el mismo proceso con el pimiento en juliana y reservamos. Volvemos a engrasar el wok y esta vez incorporamos la carne picada. Podriamos sustituir la carne de ternera por cerdo o pollo sin problema, incluso eliminarla totalmente y convertir los rollitos en solo vegetales. Dejamos que se cocina la carne a fuego alto hasta que comience a dorarse. Agregamos los brotes de soja, dos cucharadas de salsa de soja y un chorrito de aceite de sesamo y seguimos cocinando durante 1 o 2 minutos. Annyadimos al wok el resto de verduras que tenemos reservadas y dejamos 2 minutos que se mezclen los sabores. Retiramos del fuego y reservamos hasta que se temple. Estiramos una hoja de pasta filo en una superficie de trabajo y colocamos una porci—n del relleno intentando reducir al m‡ximo la cantidad de salsa. Si la mezcla esta muy humeda podria romperse la fina hoja de pasta filo. Enrolamos haciendo un rollo utilizando toda la hoja y freimos en abundante aceite. Estara listo en apenas 1 o 2 minutos. Retiramos a una bandeja con papel absorbente y servimos caliente.\n\n-Pato frito:\nEn un bol vierte medio vaso de vino Shaohsing, mas una cucharada de salsa de soja, la ralladura de jengibre con su jugo, 6 gotas de tabasco y casi toda la pimienta negra, menos una pizca. Revuelve y luego agregue las tajadas de pechuga de pato y deja marinando en la heladera durante un par de horas. Coloca un wok a calentar a fuego alto y vierte el aceite. Cuando el aceite comience a largar humo, dora las tajadas de pato marinadas 2 min de cada lado. Reservalas en una fuente de porcelana. Escurre del wok casi todo el aceite, menos 1 cucharada que servira para rehogar algunos segundos los trozos de cebolla de verdeo y sobre ellos colocar las tajadas de pato. Vierte sobre los trozos de verdeo las tajadas de pato, el resto del vino Shaohsing y ladea un poco el wok hacia el fuego para que encienda el alcohol del vino. Al terminar este flambeado, agrega una cucharadita de sal, una cucharada de salsa de soja y una pizca de pimienta. Rehoga por medio minuto y sirve caliente.\n\n-Ternera con bambu y setas:\nPartimos la carne en tiritas. Batimos el huevo en un bol, le annyadimos un poco de sal y pimienta y le incorporamos la cucharada de maicena o de harina y mezclamos todo. Echamos la carne en el y la dejamos embadurnada que repose. La freimos, pero solo vuelta y vuelta, dejandola frita por fuera y casi cruda por dentro, que no se empape mucho de aceite y la sacamos a un plato con papel de cocina. Partimos la cebolla en trozos grandes y con dos cucharadas de aceite de oliva la freimos junto con el ajo picado, el jengibre y pimienta. Tanto las setas como el bambu lo sacamos del tarro, lo ponemos en un escurridor y lo enjuagamos un poco. Si son naturales las limpiaremos y cortaremos. Una vez pochada la cebolla saltearemos los Siitake y despues el bambu. Cocinamos unos minutos mas y annyadimos la carne, removemos y cocinamos unos minutos. Le incorporamos la salsa de soja y el caldo de carne concentrado.\n\n-Sushi tradicional:\nComenzamos preparando el arroz y despues enfriarlo con un abanico tras alinnyarlo con vinagre, azucar y sal. Prepararemos una juliana de aguacate y haremos lo mismo con el pepino para tenerlo listo cuando vayamos a formar los makis. En cuanto al pescado a utilizar, en este caso cortamos el salmon eligiendo la zona de la ventresca para darle unos cortes en tiras.Con todo listo, cortamos la hoja de alga nori en dos, la ponemos sobre una esterilla o makisu forrada de film transparente de cocina dejando el lado rugoso arriba, y sobre ella extendemos el arroz presionando un poco para que se adhiera. En el centro del arroz, colocamos las tiras de pescado, el pepino y el aguacate y opcionalmente, un poco de wasabi, si nos gusta el toque picante de este condimento. Ya solo falta enrollar el alga ayudados con la esterilla y formar un cilindro. A la hora de servirlo hay que cortarlo en 8 porciones, ayudados de un cuchillo humedecido para que no se nos quede pegado el arroz.\n");
 }
 
 void imprimirFit(){
-        printf("*COMIDA FIT*\n\n-Ensalada de espinacas:\nMezcla las espinacas, los champinnyones, las fresas, la cebolla morada, el pepino y decora con el aguacate y el queso fresco. Licua el aceite de oliva, el vinagre blanco, las otras fresas y sazona con sal y pimienta. Acompannya la ensalada con la vinagreta de fresa. Sirvela en un plato hondo, acompannyado de vinagreta.\n\n-Ensalada de pasta con alubias:\nLo primero sera cocer la pasta. Despues abriremos el bote de alubias, de guisantes y las alcaparras. Los tomatitos se cortan en tiritas. La lata de atun se abre y se desmenuza este. Mezclaremos la pasta con las alubias, guisantes, alcaparras, atun y la cebollita picada a cuadritos. Para la salsa se mezcla la mayonesa, el yogurt, el zumo de limon, 2 o 3 cucharaditas del aceite de los tomates y los ajos prensados o muy picaditos y se pone sal y pimienta al gusto, por ultimo se le annyade una pizca de pimenton dulce, se mezcla y se vierte sobre la ensalada.\n\n-Tortilla de champinyones y espinacas:\nBatiremos los huevos y sazonaremos con sal y pimienta. Si se quiere se puede annyadir un chorrito de nata para que quede mas cremoso. Luego rehogaremos la cebolla con un chorrito de aceite, y annyadiremos los champinnyones. En el ultimo momento annyadir las espinacas. En otra sarten pondremos un poco de aceite y volcaremos los huevos batidos, pondremos encima las verduras y lo cuajaremos dandole forma de media luna. Serviremos al momento.\n\nBatatas rellenas:\nLavamos bien las batatas y las cortamos por la mitad. Picaremos la cebolla y la caramelizaremos en una sarten. Despues habra que saltear la pulpa de las batatas en una sarten con un fondo de manteca. Cuando comienza a tomar color, agregaremos la carne picada. Por ultimo, agregaremos la cebolla caramelizada y mezclaremos todo bien. Luego, habra que colocar las cascaras de las batatas en una fuente para horno y salpimentaremos. Rellenaremos con la mezcla y espolvorearemos con queso rallado. Para finalizar lo llevaremos a horno unos 10 a 15 minutos, hasta que gratine bien.\n\n-Crepes de avena:\nPonemos en el vaso de la licuadora, los huevos, la leche, la harina, la panela, la esencia de vainilla y la pizca de sal y lo licuamos todo bien. Engrasamos la sarten antiadherente con aceite y lo ponemos a temperatura media. Echamos la mezcla y la repartimos bien por toda la sarten moviendola circularmente. Lo dejamos hasta que podamos despegar los bordes y se pueda dar la vuelta al crepe con facilidad, lo dejamos hacerse por el otro lado y vamos apilando las crepes una a una. Por ultimo, servimos con los crepes, los enrollamos y espolvoreamos con azucar glass.\n\n-Brownie fit:Procedemos a annyadir el chocolate (previamente derretido), la leche, vainilla y huevos. Luego annyadimos la harina de avena y la levadura y batimos de una manera mas consistente. Con aceite de oliva se procede a llenar una capa en un molde para horno; para evitar que la mezcla terminada se pegue, annyadimos la nuez en la masa ya repartida. Dejaremos el brownie un tiempo de 25 minutos a una temperatura de 200grados centigrados.\n\n-Cuscus con verduras:\nComenzaremos picando las verduras en dados y el tomate en rodajas. En una sarten echamos el aceite de oliva, reservando dos cucharadas, y salteamos las hortalizas excepto el tomate. Salamos, y cocinamos durante 20 minutos o hasta que las verduras esten a nuestro gusto. Por otra parte calentamos el caldo de verduras sin que llegue a hervir, annyadimos el cuscus y tapamos para que se hidrate. Lo dejamos reposar durante cinco minutos hasta que el cuscus alcance la consistencia deseada. Una vez que pase el tiempo, le annyadimos sal y el aceite y lo desgranamos con un tenedor. Le annyadimos las verduras, removemos y servimos.\n");
-    }
+    printf("*COMIDA FIT*\n\n-Ensalada de espinacas:\nMezcla las espinacas, los champinnyones, las fresas, la cebolla morada, el pepino y decora con el aguacate y el queso fresco. Licua el aceite de oliva, el vinagre blanco, las otras fresas y sazona con sal y pimienta. Acompannya la ensalada con la vinagreta de fresa. Sirvela en un plato hondo, acompannyado de vinagreta.\n\n-Ensalada de pasta con alubias:\nLo primero sera cocer la pasta. Despues abriremos el bote de alubias, de guisantes y las alcaparras. Los tomatitos se cortan en tiritas. La lata de atun se abre y se desmenuza este. Mezclaremos la pasta con las alubias, guisantes, alcaparras, atun y la cebollita picada a cuadritos. Para la salsa se mezcla la mayonesa, el yogurt, el zumo de limon, 2 o 3 cucharaditas del aceite de los tomates y los ajos prensados o muy picaditos y se pone sal y pimienta al gusto, por ultimo se le annyade una pizca de pimenton dulce, se mezcla y se vierte sobre la ensalada.\n\n-Tortilla de champinyones y espinacas:\nBatiremos los huevos y sazonaremos con sal y pimienta. Si se quiere se puede annyadir un chorrito de nata para que quede mas cremoso. Luego rehogaremos la cebolla con un chorrito de aceite, y annyadiremos los champinnyones. En el ultimo momento annyadir las espinacas. En otra sarten pondremos un poco de aceite y volcaremos los huevos batidos, pondremos encima las verduras y lo cuajaremos dandole forma de media luna. Serviremos al momento.\n\nBatatas rellenas:\nLavamos bien las batatas y las cortamos por la mitad. Picaremos la cebolla y la caramelizaremos en una sarten. Despues habra que saltear la pulpa de las batatas en una sarten con un fondo de manteca. Cuando comienza a tomar color, agregaremos la carne picada. Por ultimo, agregaremos la cebolla caramelizada y mezclaremos todo bien. Luego, habra que colocar las cascaras de las batatas en una fuente para horno y salpimentaremos. Rellenaremos con la mezcla y espolvorearemos con queso rallado. Para finalizar lo llevaremos a horno unos 10 a 15 minutos, hasta que gratine bien.\n\n-Crepes de avena:\nPonemos en el vaso de la licuadora, los huevos, la leche, la harina, la panela, la esencia de vainilla y la pizca de sal y lo licuamos todo bien. Engrasamos la sarten antiadherente con aceite y lo ponemos a temperatura media. Echamos la mezcla y la repartimos bien por toda la sarten moviendola circularmente. Lo dejamos hasta que podamos despegar los bordes y se pueda dar la vuelta al crepe con facilidad, lo dejamos hacerse por el otro lado y vamos apilando las crepes una a una. Por ultimo, servimos con los crepes, los enrollamos y espolvoreamos con azucar glass.\n\n-Brownie fit:Procedemos a annyadir el chocolate (previamente derretido), la leche, vainilla y huevos. Luego annyadimos la harina de avena y la levadura y batimos de una manera mas consistente. Con aceite de oliva se procede a llenar una capa en un molde para horno; para evitar que la mezcla terminada se pegue, annyadimos la nuez en la masa ya repartida. Dejaremos el brownie un tiempo de 25 minutos a una temperatura de 200grados centigrados.\n\n-Cuscus con verduras:\nComenzaremos picando las verduras en dados y el tomate en rodajas. En una sarten echamos el aceite de oliva, reservando dos cucharadas, y salteamos las hortalizas excepto el tomate. Salamos, y cocinamos durante 20 minutos o hasta que las verduras esten a nuestro gusto. Por otra parte calentamos el caldo de verduras sin que llegue a hervir, annyadimos el cuscus y tapamos para que se hidrate. Lo dejamos reposar durante cinco minutos hasta que el cuscus alcance la consistencia deseada. Una vez que pase el tiempo, le annyadimos sal y el aceite y lo desgranamos con un tenedor. Le annyadimos las verduras, removemos y servimos.\n");
+}
+    
+void imprimirFrios(){
+	printf("*PLATOS FRIOS*\n\n-Tostas:\nCortar el pan en tostas de tamanyo pequenyo, por ejemplo cortando en rectangulos las rebanadas mas grandes. Despues habra que elegir los ingredientes de estas tostas. Calentar una plancha o sarten antiadherente, si se desea con un poco de aceite de oliva para tostar el pan. Y por ultimo, habra que montar la tosta y poner los ingredientes sobre el pan.\n\n-Sanwich vegetal:\nCuece los huevos , dejalos enfriar y pelalos. Corta el aguacate y la cebolla morada, pica los pepinillos y ralla una zanahoria. Habra que tostar las rebanadas de pan y untarlas con mayonesa. Monta todo el sandwich con los ingredientes que ya has preparado y listo. Para que no se desmolde y puedas comerlo mas facilmente, puedes poner un palillo de lado a lado.\n\n- Empanada de atun:\nSe pica la cebolla, los ajos y el pimiento y se sofrien a fuego medio. Agregamos el tomate, la sal y el azucar, y pochamos a fuego medio, unos 10 minutos. Volcamos en un bol con el atún desmigado y los huevos picados. Para hacer la masa se mezclan los ingredientes secos: harina, pimenton, levadura y sal. Anyadimos los liquidos: aceite, vino y agua, y mezclamos. La dejaremos reposar un rato y precalentaremos el horno a 200ºC. Dividimos la masa en dos, encima de la primera parte pondremos todo lo que hemos preparado y encima de esto, la segunda parte de la masa. Por ultimo dejaremos 45 min en el horno.\n\n- Salmorejo con jamon y huevo:\nLo primero que haremos sera lavar y triturar los ajos, la cebolla, el pimiento y los tomates. Despues cortaremos el pan a trocitos y por ultimo habra que verter aceite, vinagre y sal. Por ultimo podemos acompañarlo con huevo duro, jamon o manzana.\n\n- Vichisoi:\nPara empezar limpiaremos bien los puerros, ya que para nuestra receta necesitaremos cortar la parte blanca de los puerros. Cogeremos la parte blanca y la picamos en rodajas o en trocitos. Tambien lavamos, pelamos y picamos las patatas en trozos. Rehogamos el puerro en la mantequilla, y cuando este blando anyadimos las patatas y el caldo. Lo trituramos con la batidora y cuando se enfríe un poco, anyadimos la nata liquida. Para terminar nuestra crema, la colamos por el colador. Podemos tomarlo en caliente, pero lo mas habitual es consumirla en frio, metiendola en la nevera.\n\n- Hummus con zanahoria:\nLimpiamos todos los ingredientes: los garbanzos los escurrimos, pelamos las zanahorias y las cortamos a daditos, pelamos el ajo y lo cortamos. Colocamos 5 minutos al microondas los daditos de zanahoria. Anyadimos en un bol: los garbanzos, las semillas de sesamo, la pizca de sal, la pizca de curry, el aceite de oliva virgen extra, ajo y el zumo de lima y batimos muy bien.A esa mezcla anyadimos la zanahoria y batimos bien. Listo para servir.\n\n- Poke Bowl hawaiano:\nEmpezaremos cortando el atun en dados y ponlos en un bol. Anyade el aceite de sesamo, la salsa de soja, el zumo de las limas y la cebolleta  cortada en lonchas finas, mezcla todo y deja marinar mientras preparamos el resto. Cocina el arroz y cuando esté cocido, escurrelo. Corta los rabanitos en lonchas finas, el pepino en rodajas finas, el aguacate en lonchas, y el mango en cubos.Reparte el arroz en 4 boles. Coloca encima el pescado marinado, los rabanitos, mango, pepino y aguacate, el alga picada fina, y espolvorea con semillas de sesamo.\n");
+}
+
+void imprimirMamis(){
+	printf("-Fajitas vegetales:\nColoca un poco de aceite en una sarten y sofrie la cebolla en juliana y los pimientos cortados y congelados. Mientras se va haciendo el sofrito, puedes ir cortando el pepino en tiras. Tambien corta los tomates cherrys por la mitad para meternos en las fajitas de queso y verduras rellenas. Despues haz lo mismo con las zanahorias: pelalas, lavalas y cortalas en tiras. Y no te olvides de cortar el aguacate en rodajas y el queso tierno (o feta) en taquitos.Una vez este todo bien cortado y el sofrito de cebolla y pimientos hecho y enfriado, ya podrás montar tus fajitas vegetales frias como mas te guste. Eso si, asegurate primero de calentar en la plancha o en el microondas un pelin las tortitas para fajitas de trigo o de maiz, que podras hacer tu mismo de forma casera o comprarlas ya hechas.\n\n-Lasanya de brocoli y salmon: \nLava el bracoli y corta los ramitos, ponlos en agua hirviendo durante unos 15 minutos, que quede bien hecho para que sea mas facil triturarlo. Cuando este listo escurrelo, anyade las 2 cucharaditas de mantequilla ligera, el diente de ajo picado muy fino, sal y pimienta. Trituralo todo hasta obtener una consistencia de pure y reservalo. Pela y pica la cebolla y corta el salmon en tacos. Saltea primero la cebolla en una sarten con una cucharadita de aceite y cuando este transparente agrega el salmon, sazona con sal y pimenta. Dejalo en el fuego hasta que el salmon este cocido, retira la sarten del fuego y reserva a parte. Cuece las placas de pasta para lasanya segun las indicaciones del fabricante. Para la bechamel, en un cazo derrite la mantequilla, anyade la harina, mezclalo y anyade la leche caliente y remueve sin parar a fuego lento hasta que no queden grumos y la consistencia sea la deseada. Anyade sal, pimienta y una pizca de nuez moscada, mezcla y retira del fuego. Ayudate de la minipimer si te quedan grumos. Ya estan los ingredientes preparados, para montar la lasanya primero unta con un poco de mantequilla una fuente apta para horno. Empieza a preparar las capas : Coloca 2 placas de lasanya. Reparte sobre las placas una capa de pure de brocoli. Encima del pure anyade parte del salteado de cebolla y salmon. Por ultimo cubre el salmón con un poco de bechamel. Para la siguiente capa coloca de nuevo 2 placas mas de pasta y repite los pasos anteriores. Finalmente coloca las 2 últimas placas de pasta, cubre con el resto de la bechamel y con 15 gramos del queso rallado por cada lasanya.\n\n-Porridge:\nPonemos a calentar la leche o agua en un cazo (se puede poner cascara de naranja, o una vaina de vainilla). Cuando comience a hervir, anyadimos los copos de avena (retiramos primero la cascara de naranja o vaina de vainilla si la pusimos) y cocinamos a fuego muy lento durante 2 minutos, removiendo siempre Cuando tengamos una papilla algo grumosa, apagamos el fuego y dejamos reposar 1 minuto. Anyadimos canela, frutos secos, un chorrito de miel, fruta fresca a gusto, y servimos.\n\n-Pa amd tomaquet:\nCortaremos el pan en rebanadas. El pan que vayamos a utilizar puede ir tostado o no. Incluso quedara bueno si es de hace dos días. Partiremos los tomates a la mitad. Los tomates de ramillete son los mejores. Es dificil encontrarlos hoy en dia, pero los bueno tomate de ramillete son los que al restregarlos en el pan, tan solo queda su piel. Pelaremos el ajo y lo restregaremos en la rebanada de pan. El anyadir ajo es opcional, pero siempre le dara mas sabor. Lo siguiente que tenemos que hacer, es untar la mitad del tomate en el pan. En quinto lugar, añadiremos un chorrito de aceite de oliva en la rebanada de pan. Por ultimo, echaremos la sal en la rebanada y listo para comer.\n\n-Infusion de jengibre:\nHervir el agua en una tetera o en una olla. Mientras tanto, pelamos y rallamos la raiz de jengibre. La cantidad que utilizaremos sera una cucharada de postre de jengibre rallado. En una taza, anyadimos el agua hirviendo y el jengibre. Dejamos reposar tapado durante 10 minutos. Pasado ese tiempo, colamos la infusion de jengibre y anyadimos dos cucharaditas de zumo de limon. Para terminar, agregamos miel a la infusion de jengibre y limon.\n");
+}
+    
+//FUNCIONES PARA "FESTIVIDADES"
+void imprimirNavidad(){
+	int o2;
+	
+	printf("*Feliz Navidad!!*\n Mas tiempo con tu familia, menos pensando el menu\n\n");
+    printf(" 1.Menu estandar\n 2.Menu premium\n 3.Menu kids\n");
+    printf("Introduzca el numero del menu deseado:\n");
+    scanf("%d",&o2);
+	    if (o2==1){
+	        printf("Menu estandar:\n\n");
+	        printf("*ENTRANTES:*\n Embutido Variado\n Humus de garbanzo. Acompanyado de nachos, zanahoria, o puerros\n Croquetas de jamon\n\n*PRIMER PLATO:*\n Crema de calabaza con queso roquefort\n Sopa de marisco\n Tempura de verduras\n\n*SEGUNDO PLATO:*\n Solomillo Wellington\n Berenjenas rellenas\n Lubina a la sal\n\n*POSTRES:*\n Tarta de queso/zanahoria\n Brownie\n Hojaldre de chocolate\n");
+	    }
+		else if (o2==2){
+	        printf("Menu premium:\n\n");
+	        printf("*ENTRANTES:*\n Sticktartar\n Coquinas en salsa marinera\n Jamon 5jotas\n Salmon gravelax\n\n*PRIMER PLATO:*\n Risoto con trufas\n Bisque de langostinos\n Crema de carabineros\n\n*SEGUNDO PLATO:*\n Cordero asado a las finas hierbas\n Merluza en salsa verde\n Lasanya de verduras\n\n*POSTRES:*\n Mousse de crema de orujo\n Trufas con helado flambeado\n Filloas\n\n");
+	    }
+		else if (o2==3){
+	        printf("Menu kids:\n\n");
+	        printf("*PLATO PRINCIPAL:*\n Macarrones gratinados\n Corquetas y empanadillas\n Escalopines con patatas\n Arroz a la cubana\n\n*POSTRES:*\n Bola de helado\n Flan de queso\n Mousse de chocolate\n Macedonia\n");   
+	    }
+}
+
+void imprimirSanValentin(){
+	int o2;
+	printf("Feliz San Valentin a los enamorados del buen comer!!\n\n");
+    printf(" 1.Menu comida\n 2.Menu cena\n");
+    printf("Introduzca el numero del menu deseado:\n");
+    scanf("%d",&o2);
+        if (o2==1){
+            printf("Menu comida:\n\n");
+            printf(" ENTRANTES:\n Mousse de esparragos\n Crema de mejillones con manzana y cilantro\n\n PLATO PRINCIPAL:\n ZamburiÃ±as picantitas con salsa de tomate y jengibre\n Pollo en reduccion de balsÃ¡mico y verduras\n\n POSTRES:\n Sabayon con frutos rojos\n Tarta de crepes con fresas y nata \n");
+        }
+		else if (o2==2){
+            printf("Menu cena:\n\n");
+            printf(" ENTRANTES:\n Ensalada de fresas, espinacas y queso de cabra con vinagreta de fresa\n Crujiente de queso y membrillo\n\n PLATO PRINCIPAL:\n Salmon al vapor con salsa de mostaza a la antigua y sidra\n Solomillo de cerdo en salsa de cerveza y miel con cebolla y castanyas\n\n POSTRES:\n Coulant de chocolate\n Pannacotta de Nutella y vainilla\n\n");
+        }	
+}
+
+void imprimirCumpleanyos(){
+	int o2;
+	printf("Feliz cumpleanyos!!\nA soplar las velas.\n\n");
+    printf(" 1.Amante del chocolate\n 2.Algo mas ligth\n 3.Prefiero salado\n");
+    printf("Introduzca el numero del menu deseado:\n");
+    scanf("%d",&o2);
+        if (o2==1){
+	        printf("Amante del chocolate:\n\n");
+	        printf(" Tarta de tres chocolates\n Tarta de galletas con crema de chocolate\n Brownie de chocolate con nueces\n");
+		}
+		else if (o2==2){
+	        printf("Algo mas ligth:\n\n");
+	        printf(" Pastel de zanahoria con nueces\n Pastelitos de queso\n Tarta de manzana\n Tarta de queso\n");
+		}
+		else if(o2==3){
+            printf("Prefiero salado:\n\n");
+            printf(" Flamenquines enrrollados al horno\n Croissants de queso y jamon\n Finggers de queso\n Mini hamburguesas con queso\n");
+        }
+}
+
+void imprimirSemanaSanta(){
+	int o2;
+	printf("Vacaciones bien merecidas!\nEn esta seccion encontraras los platos tipicos de esta festividad.\n\n");
+    printf(" 1.Entrantes\n 2.Primeros\n 3.Segundos\n 4.Postres\n");
+    scanf("%d",&o2);
+        if (o2==1){
+            printf("Para empuzar con buen pie tenemos:\n\n");
+            printf(" Atascaburras\n Bunyuelos de bacalao\n Tortilla de camarones\n Porrusalda\n");
+        }
+		else if (o2==2){
+            printf("Continuamos con los primeros:\n\n");
+            printf(" Potaje de vigilia\n Garbanzos con espinacas\n Patatas viudas\n Sopa de ajo\n");
+        }
+		else if(o2==3){
+            printf("Segundos platos:\n\n");
+            printf(" Cordero asado\n Hornazo\n Pava con pelotas\n Merluza a la cazuela\n");
+        }
+		else if(o2==4){
+            printf("Postres:\n\n");
+            printf(" Torrijas\n Leche frita\n Arroz con leche\n Bunyuelos de viento\n");
+        }
+}
+
+
 void imprimirBanner(){
     printf("-------------------COCINANDO--CON--EDI-------------------\n");
     }
