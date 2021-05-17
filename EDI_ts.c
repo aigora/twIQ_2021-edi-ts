@@ -15,7 +15,7 @@ void imprimirPatata();
 void imprimirAsiaticas();
 void imprimirFit();
 void imprimirFrios();
-void imprimirMamir();
+void imprimirMamis();
 
 //funciones para "Festividades"
 void imprimirNavidad();
