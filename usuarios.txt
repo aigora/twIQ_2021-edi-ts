@@ -1,20 +1,6 @@
-danicuellar
- 123jd456
- 0
- 0
- 0
-violetacarrascal
- 123456789
- 0
- 0
- 0
-iria
+0
+ danicuellar
  123456
  2
- 3
- 0
-
- 
- 0
- 0
- 0
+ 6
+ 2
