@@ -1,6 +1,7 @@
-#include<stdio.h>
+#include <stdio.h>
 #include <string.h>
 #include <conio.h>
+#include <stdlib.h>
 
 void imprimirBanner();
 
@@ -46,6 +47,7 @@ int main (){
     int k;
     int opcion, o1, o2,s;
     int favorito;
+    int back=1;
     FILE * frecet;
     FILE * fichero;
     
@@ -138,7 +140,10 @@ int main (){
                     
                 break;
                 }
- 
+MENU: //Esta es la etiqueta "Volver al menu"
+fflush(stdin);
+
+ 		printf("\n----------------------MENU----------------------\n");
         printf(" 1.Que tienes en la nevera?\n 2.Por categorias\n 3.Ver todas las recetas\n 4.Festividades\n 5.Mostrar mis favoritos\n 6.SALIR\n");
         printf("Marque el numero de la opcion deseada:\n");
         scanf("%d",&opcion);
@@ -156,16 +161,27 @@ int main (){
             
             if (o1==1){
                 imprimirHuevos();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
                     printf("Introduzca el numero de la receta:\n");
                     scanf("%d",&usuarios[i].recetafav); //ya he dejado indicada mi receta fav
                 }
+                	
             }
             
             else if(o1==2){
                 imprimirPasta();
+                printf("Si quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -176,6 +192,11 @@ int main (){
             
             else if(o1==3){
                 imprimirArroz();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -186,6 +207,11 @@ int main (){
             
             else if(o1==4){
                 imprimirPatata();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -196,6 +222,11 @@ int main (){
             
             else if(o1==5){
                 imprimirLegumbres();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -218,6 +249,11 @@ int main (){
             
             if (o1==1){
                 imprimirAsiaticas();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -228,6 +264,11 @@ int main (){
             
             else if(o1==2){
                 imprimirFit();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -238,16 +279,26 @@ int main (){
             
             else if(o1==3){
                 imprimirEspanyolas();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                   printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                  scanf("%d",&favorito);
                  if (favorito==1){
                      printf("Introduzca el numero de la receta:\n");
                      scanf("%d",&usuarios[i].recetafav); //ya he dejado indicada mi receta fav
-                 }
+                }
             }
             
             else if(o1==4){
                 imprimirMamis();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -258,6 +309,11 @@ int main (){
             
             else if(o1==5){
                 imprimirHorno();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -268,6 +324,11 @@ int main (){
             
             else if(o1==6){
                 imprimirFrios();
+                printf("\nSi quiere volver al menu pulse 0:\n");
+            	scanf("%d", &back);
+            	if(back==0){
+            		goto MENU;
+				}
                 printf("\nDesea marcar algun favorito: 1.si o 2.no\n");
                 scanf("%d",&favorito);
                 if (favorito==1){
@@ -279,6 +340,11 @@ int main (){
         
         else if(opcion==3){ //OPCION PARA VER TODAS LAS RECETAS
             imprimirRecetas();
+		        printf("Si quiere volver al menu pulse 0:\n");
+		    	scanf("%d", &back);
+		    	if(back==0){
+		    		goto MENU;
+				}
         }
         
         else if(opcion==4){ //OPCION PARA LAS FETIVIDADES
@@ -288,18 +354,38 @@ int main (){
             scanf("%d",&o1);
                 if (o1==1){
                     imprimirNavidad();
+                    printf("Si quiere volver al menu pulse 0:\n");
+	            	scanf("%d", &back);
+	            	if(back==0){
+	            		goto MENU;
+					}
                 }
                 
                 else if (o1==2){
                     imprimirSanValentin();
+                    printf("Si quiere volver al menu pulse 0:\n");
+	            	scanf("%d", &back);
+	            	if(back==0){
+	            		goto MENU;
+					}
                 }
                 
                 else if (o1==3){
                     imprimirCumpleanyos();
+                    printf("Si quiere volver al menu pulse 0:\n");
+	            	scanf("%d", &back);
+	            	if(back==0){
+	            		goto MENU;
+					}
                 }
     
                 else if (o1==4){
                     imprimirSemanaSanta();
+                    printf("Si quiere volver al menu pulse 0:\n");
+	            	scanf("%d", &back);
+	            	if(back==0){
+	            		goto MENU;
+					}
                 }
         }
     
@@ -405,7 +491,6 @@ int main (){
                     else if(usuarios[b].marcador==2){ //indica que la opcion guardada esta en "Par categorias"
                         
                         if(usuarios[b].marcador2==1){ //Asiatica
-                            
                             if(usuarios[b].recetafav==1){ //que receta asiatica esta guardando
                                 printf("-Noodles salteados:\nEcha una cucharada de aceite de oliva en un wok o sarten. Cuando este muy caliente annyade las verduras cortadas en juliana, el jengibre en polvo, 2 cucharadas de salsa de soja o tamari y el agua. Cocina las verduras a fuego fuerte durante unos 5 minutos o hasta que esten al dente.Mientras, cuece los fideos en abundante agua hirviendo durante unos 5 minutos. Cuelalos y echalos en el wok. Annyade otras 2 cucharadas de salsa de soja o tamari, remueve y deja que se cocinen durante unos 2 minutos.\n");
                             }
@@ -556,9 +641,15 @@ int main (){
                             else if(usuarios[b].recetafav==7){
                                 printf("-Poke Bowl hawaiano:\nEmpezaremos cortando el atun en dados y ponlos en un bol. Anyade el aceite de sesamo, la salsa de soja, el zumo de las limas y la cebolleta  cortada en lonchas finas, mezcla todo y deja marinar mientras preparamos el resto. Cocina el arroz y cuando estÈ cocido, escurrelo. Corta los rabanitos en lonchas finas, el pepino en rodajas finas, el aguacate en lonchas, y el mango en cubos.Reparte el arroz en 4 boles. Coloca encima el pescado marinado, los rabanitos, mango, pepino y aguacate, el alga picada fina, y espolvorea con semillas de sesamo.\n");
                             }
-                        }
+                        } 
                     }
-                }
+                    
+		            printf("Si quiere volver al menu pulse 0:\n");
+		        	scanf("%d", &back);
+		        	if(back==0){
+		        		goto MENU;
+					}
+				}
     
         else if(opcion==6){
             printf("Gracias por su visita.\nHasta pronto.\n");
